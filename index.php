@@ -5,6 +5,7 @@ include 'app/pages.php';
 session_start();
 define('ROOT', dirname(__DIR__));
 
+
 //set session expiry after period of no use. 1 hour
 $destryin = 3600; //seconds
 if (time() >= ($_SESSION["start_time"] + $destryin)) {
