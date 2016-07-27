@@ -4,6 +4,12 @@
 $sql_procedures = "SELECT * FROM procedures";
 $procedure = db_query($sql_procedures);
 
+//to delete a procedure
+if(isset($_GET['delete'])){
+    $sql_deleteprocedure = "DELETE FROM `procedures` WHERE `procedure_id` ='" . $_GET['id'] . "'";
+    db_query($sql_deleteprocedure);
+    header('Location: /ExamManager/procedures');
+}
 ?>
 
 <div class="section">
@@ -60,7 +66,7 @@ $procedure = db_query($sql_procedures);
                         <td><?php echo $row["price"];?></td>
                         <td><?php echo $row["duration"];?></td>
                         <td><a class="btn btn-default" title="edit" href="edit_procedure?id=<?php echo $row['procedure_id'];?>"> <img src="assets/img/edit.png"></a></td>
-                        <td><a class="btn btn-default" title="delete" href="edit_user?id=<?php echo $row['user_id'];?>"> <img src="assets/img/delete.png"></a></td>
+                        <td><a class="btn btn-default" title="delete" href="procedures?delete=<?php echo $row['procedure_name'] . "&id=" . $row['procedure_id'];?>"> <img src="assets/img/delete.png"></a></td>
                     </tr>
                    <?php }
                    ?>

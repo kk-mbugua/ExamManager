@@ -4,6 +4,12 @@
 $sql_modalities = "SELECT * FROM modalities";
 $modality = db_query($sql_modalities);
 
+//to delete a modality
+if(isset($_GET['delete'])){
+    $sql_deletemodality = "DELETE FROM `modalities` WHERE `modality_abbr` ='" . $_GET['delete'] . "'";
+    db_query($sql_deletemodality);
+    header('Location: /ExamManager/modalities');
+}
 ?>
 
 <div class="section">
@@ -48,7 +54,7 @@ $modality = db_query($sql_modalities);
                         <td><?php echo $row["modality_name"];?></td>
                         <td><?php echo $row["install_date"];?></td>
                         <td><?php echo $row["next_service"];?></td>
-                        <td><a class="btn btn-default" title="delete" href="edit_user?id=<?php echo $row['user_id'];?>"> <img src="assets/img/delete.png"></a></td>
+                        <td><a class="btn btn-default" title="delete" href="modalities?delete=<?php echo $row['modality_abbr'];?>"> <img src="assets/img/delete.png"></a></td>
                     </tr>
                    <?php }
                    ?>
