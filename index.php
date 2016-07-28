@@ -4,6 +4,7 @@ include 'app/functions.php';
 include 'app/pages.php';
 session_start();
 define('ROOT', dirname(__DIR__));
+$home = "/ExamManager";
 
 
 //set session expiry after period of no use. 1 hour

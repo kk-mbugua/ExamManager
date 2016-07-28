@@ -18,8 +18,8 @@
                             <?php echo $_SESSION["full_name"]; ?>
                             <span class="caret"></span></a>
                                 <ul class=" drop-down dropdown-menu" role="menu" aria-labelledby="menu1">
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="">Admin Area</a></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="logout">logout</a></li>
+                                    <li role="presentarion"></li><a <?php if ($_SESSION["admin"] > 1) { echo "style = \"display: none\"";}?> role="menuitem" tabindex="-1" href="logs">logs</a>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="logout">logout</a></li>
                                 </ul>
             <?php endif; ?>
           </ul>

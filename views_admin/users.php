@@ -1,8 +1,15 @@
 <?php 
+
 //write the sql statement and run the query
 $sql_users = "SELECT user_id, full_name, user_name, admin FROM user_details WHERE NOT user_name = 'sevenseastech'";
 $user = db_query($sql_users);
 
+//to delete a user
+if(isset($_GET['delete'])){
+    $sql_deleteuser = "DELETE FROM `user_details` WHERE `user_id` ='" . $_GET['id'] . "'";
+    db_query($sql_deleteuser);
+    header('Location: /ExamManager/users');
+}
 ?>
 
 <div class="section">
@@ -48,13 +55,13 @@ $user = db_query($sql_users);
                  <li class="col-md-6">
                   <div class="panel panel-default panel-faded">
                     <div class=" file-list">
-                        <a class="pull-left img--space" href="userinfo?id=<?php echo $row["user_id"]?>"><img class="media-object" src="assets/img/avatar.jpg" height="79" width="79"></a>
+                        <img class="media-object pull-left img--space" src="assets/img/avatar.jpg" height="79" width="79">
                         <div class="media-body">
                           <h4 class="name"><?php echo $row["full_name"];?></h4>
                           <h5 class="name">Username: <?php echo $row["user_name"];?></h5>
                           <div><?php if($row["admin"]>0){echo "Administrator";}else{echo "<br>";}?></div>
                           <a class="btn btn-default" title="edit" href="edit_user?id=<?php echo $row['user_id'];?>"> <img src="assets/img/edit.png"></a>
-                          <a class="btn btn-default" title="delete" href="edit_user?id=<?php echo $row['user_id'];?>"> <img src="assets/img/delete.png"></a>
+                          <a class="btn btn-default" title="delete" href="users?delete=<?php echo $row['user_name'] . "&id=" . $row['user_id'];?>"> <img src="assets/img/delete.png"></a>
                         </div>
                     </div>
                   </div>

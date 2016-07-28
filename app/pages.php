@@ -130,6 +130,10 @@ switch ($pagename) {
         return $path;
         break;
     
+    case 'logs':
+        return $path;
+        break;
+    
     default:
         return go_to_all($pagename);
         break;

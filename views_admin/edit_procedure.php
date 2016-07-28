@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             "INSERT INTO procedures (procedure_name, modality, price, duration, created_by) VALUES ('$procedure_name', '$modality','$price', '$duration', '$created_by')";
     db_query($sql_insert_new_procedure);
     
-    header('Location: /ExamManager/procedures');
+    
+    header("Location: /ExamManager/procedures");
 } 
 ?>
 
