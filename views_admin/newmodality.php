@@ -4,8 +4,8 @@ $month_array = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
   
     //define variables for input
-    $modality_name     = get_input("procedure_name");
-    $modality_abbr     = get_input("modality");
+    $modality_name     = get_input("modality_name");
+    $modality_abbr     = get_input("modality_abbr");
     
     $install_year   = get_input("install_year");
     $install_month  = get_input("install_month");
@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             <form role="form" method="post">
                 <div class="form-group">
                     <label class="control-label">Modality Name<sup>*</sup></label>
-                  <input class="form-control" type="text" name="procedure_name" required>
+                  <input class="form-control" type="text" name="modality_name" required>
                 </div>
                 <div class="form-group">
                   <label class="control-label">Modality Abbreviation<sup>*</sup></label>
-                  <input class="form-control" type="text" name="procedure_name" required>
+                  <input class="form-control" type="text" name="modality_abbr" required>
                 </div>
                 
                 
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <select class="form-control" name="service_year" required>
                             <option>year</option>
                         <?php 
-                        for ($year = date(Y); $year <= 2030; $year++) {
+                        for ($year = date(Y); $year <= (date(Y) + 5); $year++) {
                             ?>
                             <option value="<?php echo $year;?>"><?php echo $year;?></option>
                         <?php }
