@@ -7,12 +7,16 @@ if(isset($_GET['patient_id'])){
   $user_id =  $_SESSION["user_id"];
 }
 
+//pull list of modalities from datbase
+$sql_modalities = "SELECT * FROM modalities";
+$modalities = db_query($sql_modalities);
+
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
 $req_doctor     =   get_input("req_doctor");
 //load data from forms into variables  
 $id = uniqid();  
-$group          =   get_input("group");
+$modality          =   get_input("modality");
 $exam_name      =   get_input("procedure");
 $description    =   get_input("description");
 $amount    =   get_input("amount");
@@ -21,7 +25,7 @@ $repid = uniqid();
 
 //sql statement to insert data into table
 $sql_insert_new_exam = 
-        "INSERT INTO exam_info(exam_id, performer_id, patient_id, req_physician, modality, exam_name, exam_reason, receipt, amount) VALUES ('$id','$user_id','$identification','$req_doctor','$group','$exam_name','$description', '$receipt', $amount)";
+        "INSERT INTO exam_info(exam_id, performer_id, patient_id, req_physician, modality, exam_name, exam_reason, receipt, amount) VALUES ('$id','$user_id','$identification','$req_doctor','$modality','$exam_name','$description', '$receipt', $amount)";
         $report_insert = "INSERT INTO reports(id, exam_id, patient_id) VALUES ('$repid','$id','$user_id')";
 
 //qureying the DATABASE
@@ -56,12 +60,16 @@ db_query($report_insert);
       <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label class="control-label">Modality<sup>*</sup></label>
-              <select class="form-control" name="group" required>
-                <option value=""></option>
-                <option value="MX">MX</option>
-                <option value="US">US</option>
-              </select>
+                <label class="control-label">Modality<sup>*</sup></label>
+                <select class="form-control" name="modality" required>
+                    <option>Select modality</option>
+                <?php 
+                while ($row = $modalities->fetch_assoc()) {
+                    ?>
+                    <option value="<?php echo $row["modality_abbr"];?>"><?php echo $row["modality_abbr"];?></option>
+                <?php }
+                ?>
+                </select>
             </div>
           </div>
           <div class="col-md-8">
