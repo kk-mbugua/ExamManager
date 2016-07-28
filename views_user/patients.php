@@ -1,7 +1,8 @@
 <?php 
-echo $page = isset($_GET['page']) ? $_GET['page']:1;
+echo $page = isset($_GET['pg']) ? $_GET['pg']:1;
+$start = ($page > 1) ?($page *12)-12 :0;
 //write the sql statement and run the query
-$sql_schedule = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details";
+$sql_schedule = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details LIMIT {$start} , 12";
 
 $patient = db_query($sql_schedule);
 
@@ -11,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
     if(isset($_GET["search"])){
       $search=$_GET['search'];
     }
-    $sql_patient_search = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%' ";
+    $sql_patient_search = "SELECT SQL_CALC_FOUND-ROWS patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%' ";
     $patient = db_query($sql_patient_search);
     }
 
@@ -69,5 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
                </ul>  
           </div>
         </div>
+        <?php echo $total = db_query("SELECT FOUND_ROWS() as total")->fetch()['total'];?>
       </div>
     </div>

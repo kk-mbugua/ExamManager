@@ -8,12 +8,14 @@ define('ROOT', dirname(__DIR__));
 
 //set session expiry after period of no use. 1 hour
 $destryin = 3600; //seconds
-if (time() >= ($_SESSION["start_time"] + $destryin)) {
-    unset($_SESSION["start_time"]);
-    session_destroy();
-}
-else{//reset the timer
-    $_SESSION["start_time"] = time();
+if(isset($_SESSION["start_time"])){
+    if (time() >= ($_SESSION["start_time"] + $destryin)) {
+        unset($_SESSION["start_time"]);
+        session_destroy();
+    }
+    else{//reset the timer
+        $_SESSION["start_time"] = time();
+    }
 }
 
 if(!empty($_GET['page'])){
