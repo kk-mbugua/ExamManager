@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
     if(isset($_GET["search"])){
       $search=$_GET['search'];
     }
-    $sql_patient_search = "SELECT SQL_CALC_FOUND-ROWS patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%' ";
+    $sql_patient_search = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%'  LIMIT {$start} , 12";
     $patient = db_query($sql_patient_search);
     }
 
@@ -70,6 +70,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
                </ul>  
           </div>
         </div>
-        <?php echo $total = db_query("SELECT FOUND_ROWS() as total")->fetch()['total'];?>
+        <?php 
+            $result=db_query("SELECT COUNT(*) FROM patient_details;");
+             $tot = $result->fetch_assoc();
+             $total = ceil($tot["COUNT(*)"]/12);
+        ?>
+        <div class="row">
+        <div class="col-md-12">
+        <ul class="pagination">
+        <?php for($x = 1;$x <= $total ; $x++): ?>
+          <li><a href="patients?pg=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+        <?php endfor; ?>
+        </ul>
+        </div>
+        </div>
       </div>
     </div>
