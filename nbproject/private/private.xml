@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/edit_procedure.php</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/procedures.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/newexam.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_all/login.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_all/logout.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/templates/navigation.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/modalities.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/logs.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/index.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/app/pages.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/newprocedure.php</file>
         </group>
     </open-files>
 </project-private>
