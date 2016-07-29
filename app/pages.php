@@ -74,8 +74,12 @@ switch ($pagename) {
         return  $path;
         break;
         
-    case 'editreport':
+    case 'print_report':
         return  $path;
+        break;
+    
+    case 'print_preview':
+        return $path;
         break;
 
     default:
