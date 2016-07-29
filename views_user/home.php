@@ -47,11 +47,11 @@
 </div>
       </div>
       <div class="col-md-4">
-          <a href="schedule">
+          <a href="exams">
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
                     <img src="assets/img/calendar.png" class="img-responsive simple-menu">
-                    <h2 class="text-center">Exam Schedule</h2>
+                    <h2 class="text-center">Exams</h2>
                 </div>
            </div>
           </a>
@@ -62,6 +62,16 @@
                 <div class="panel-body">
                     <img src="assets/img/patient.png" class="img-responsive simple-menu">
                     <h2 class="text-center">view patients</h2>
+                </div>
+           </div>
+          </a>
+      </div>
+      <div class="col-md-4 ">
+          <a href="patients">
+           <div class="panel panel-default panel-faded">
+                <div class="panel-body">
+                    <img src="assets/img/patient.png" class="img-responsive simple-menu">
+                    <h2 class="text-center">view exams</h2>
                 </div>
            </div>
           </a>

@@ -48,7 +48,7 @@ function error_handler($error_msg, $mysqli_errno, $mysqli_errmsg) {
     }
     
     echo "The following error(s) has occured:" . "<br>" . $error_msg;
-    die();
+   // die();
 }
 
 
@@ -62,7 +62,7 @@ function db_query($sql) {
     
     //run the mysql querry
     $result = $conn->query($sql);
-    
+    affected();
     //close the databse
     db_close();
     

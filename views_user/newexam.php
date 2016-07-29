@@ -32,7 +32,7 @@ $sql_insert_new_exam =
 db_query($sql_insert_new_exam);
 db_query($report_insert);
 
-   header('Location: viewexams?id='. $id);
+   header('Location: examinfo?id='. $id);
 
 }
 ?>

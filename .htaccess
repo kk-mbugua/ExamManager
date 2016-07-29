@@ -7,3 +7,6 @@ RewriteEngine on
 # requesting routing
 
 RewriteRule ^([a-zA-Z_-]*)$  index.php?page=$1 [nc,qsa]
+
+#allows pagination
+php_value mysql.trace_mode "0"
