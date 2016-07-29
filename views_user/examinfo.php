@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
 $exam = db_query($select);
 
 $results = $exam->fetch_assoc();
-
+var_dump($results);
 }
 ?>
   <div class="section">

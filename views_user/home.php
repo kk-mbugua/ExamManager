@@ -30,7 +30,7 @@
         <a href="newpatient" class="btn btn-default btn-block btn-large">New patient</a>
         <a onclick="document.getElementById('searc').style.display='block';" class="btn btn-default btn-block btn-large">Existing patient</a>
         <div id="searc" style="display:none;">
-        <form role="form" method="post" action="patients">
+        <form role="form" method="get" action="patients">
               <div class="form-group">
                 <div class="input-group">
                   <input type="text" class="form-control" name="search" placeholder="Enter Patient Name">
