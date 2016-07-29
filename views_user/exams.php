@@ -27,7 +27,7 @@ $exams = db_query($sql_exams);
           </div>
         <div class="row">
           <div class="col-md-12">
-            <h1>Schedule Exam</h1>
+            <h1>Exams</h1>
           </div>
            <div class="col-md-5">
             <form role="form" method="get">
@@ -40,6 +40,16 @@ $exams = db_query($sql_exams);
                 </div>
               </div>
             </form>
+          </div>
+          <div class="col-md-offset-2 col-md-5">
+            <div class="btn-group">
+              <a href="#" class="btn btn-default">today</a>
+              <a  href="#" class="btn btn-default <?php echo "active";?>">all</a>
+              <a href="#" class="btn btn-default">Worklist</a>
+              <a href="#" class="btn btn-default">pending</a>
+              <a href="#" class="btn btn-default">taken</a>
+              <a href="#" class="btn btn-default">reported</a>              
+            </div>
           </div>
       <div class="col-md-12">
         <table class="table">

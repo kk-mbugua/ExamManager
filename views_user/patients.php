@@ -19,10 +19,10 @@ $patient = db_query($sql_patients);
 ?>
 <div class="section">
       <div class="container">
-        <div class="row">
-        
+
           <div class="panel panel-default panel-faded">
           <div class="panel-body">
+        <div class="row">
          <div class="col-md-12">
         
             <h1>Patients</h1>
@@ -39,6 +39,11 @@ $patient = db_query($sql_patients);
               </div>
             </form>
           </div>
+          <div class="col-md-offset-3 col-md-4">
+            <div class="btn-group">
+              <a href="#" class="btn btn-default">today</a>
+              <a href="#" class="btn btn-default <?php echo "active";?>">all</a>              
+            </div>
           </div>
           </div>
           </div>
@@ -78,6 +83,7 @@ $patient = db_query($sql_patients);
         ?>
         <div class="row">
         <div class="col-md-12">
+
         <ul class="pagination">
         <?php for($x = 1;$x <= $total ; $x++): ?>
           <li><a href="patients?pg=<?php echo $x.$url_search; ?>"><?php echo $x; ?></a></li>
