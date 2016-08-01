@@ -12,7 +12,7 @@ $this_result = $a_result->fetch_assoc();
 ?>
 <div class="section">
 <div class="col-md-5">
-<form method="get" action="views_user/print_preview.php">
+<form method="get" action="print_preview">
     <h4>Confirm report's author</h4>
         <div class="form-group">
            <label class="control-label">Name:<sup>*</sup></label>
