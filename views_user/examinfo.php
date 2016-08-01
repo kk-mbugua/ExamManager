@@ -8,7 +8,6 @@ if(isset($_GET['id'])){
 $exam = db_query($select);
 
 $results = $exam->fetch_assoc();
-var_dump($results);
 }
 ?>
   <div class="section">
@@ -46,7 +45,7 @@ var_dump($results);
         <dt>date Time :</dt>
         </div>
         <div class="col-md-9">
-        <dd><?php echo $results['date_time'];?></dd>
+        <dd><?php echo $results['created_at'];?></dd>
         </div>
         <div class="col-md-3">
         <dt>decsription :</dt>
@@ -65,11 +64,15 @@ var_dump($results);
           <div class="col-md-12">
             <div class="btn-group">
               <a href="edit-exam?id=<?php echo $results['exam_id'];?>" class="btn btn-default">Edit Exam</a>
-              <?php if($results['report']): ?>
+               <?php if($results['exam_done']==0): ?>
+              <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Take Exam</a>
+              <?php else: ?>
+              <?php if($results['report_done']==1): ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default"> Edit Report</a>
             <?php else: ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Make Report</a>
             <?php endif; ?>
+            <?php endif; ?>         
             </div>
           </div>
         </div>

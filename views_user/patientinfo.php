@@ -6,9 +6,8 @@
 $sql_patient = "SELECT * FROM patient_details WHERE patient_id = '$identification'";
 $a_patient = db_query($sql_patient);
 $this_patient = $a_patient->fetch_assoc();
-echo $this_patient["patient_name"];
 //write the sql statement and run the query
-$sql_schedule = "SELECT exam_info.exam_id, patient_details.patient_name, exam_info.req_physician, exam_info.exam_name, exam_info.modality, exam_info.date_time  FROM exam_info INNER JOIN patient_details ON exam_info.patient_id=patient_details.patient_id where exam_info.patient_id='$identification'";
+$sql_schedule = "SELECT exam_info.exam_id, patient_details.patient_name, exam_info.req_physician, exam_info.exam_name, exam_info.modality, exam_info.created_at  FROM exam_info INNER JOIN patient_details ON exam_info.patient_id=patient_details.patient_id where exam_info.patient_id='$identification'";
 $schedule = db_query($sql_schedule);
 
 ?>
@@ -105,8 +104,8 @@ $schedule = db_query($sql_schedule);
             <td><?php echo $row["exam_name"]?></td>
             <td><?php echo $row["modality"]?></td>
             <td><?php echo $row["req_physician"]?></td>
-            <td><?php echo $row["date_time"]?></td>
-            <td><a class="btn btn-default" href="viewexams?id=<?php echo $row['exam_id'];?>">view</a></td>
+            <td><?php echo $row["created_at"]?></td>
+            <td><a class="btn btn-default" href="examinfo?id=<?php echo $row['exam_id'];?>">view</a></td>
             </tr>
             <?php }
             ?>

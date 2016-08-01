@@ -36,7 +36,7 @@ header('Location: viewexams?id='.$exam_id);
                 <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <h1>New Exam</h1>
+        <h1>Edit Exam</h1>
       </div>
     </div>
     <form role="form" method="post" class="col-md-12">

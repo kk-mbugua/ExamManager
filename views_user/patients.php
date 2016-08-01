@@ -1,10 +1,22 @@
 <?php 
 $page = isset($_GET['pg']) ? $_GET['pg']:1;
+$misc = isset($_GET['misc']) ? $_GET['misc']:1;
+switch ($misc) {
+     case 1:
+     $miscellaneous =" WHERE created_at >= curdate() ";
+     break;
+     case 2:
+     $miscellaneous =" ";
+     break;
+   default:
+     $miscellaneous =" WHERE created_at >=curdate() ";
+     break;
+}
 $search = isset($_GET['search']) ? $_GET['search']:null;
 $start = ($page > 1) ?($page *12)-12 :0;
 $url_search = "";
-$sql_patients = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details LIMIT {$start} , 12";
-$p_count ="SELECT COUNT(*) FROM patient_details";
+$sql_patients = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details" . $miscellaneous . "LIMIT {$start} , 12";
+$p_count ="SELECT COUNT(*) FROM patient_details " . $miscellaneous ;
 $srch = 0;
 
 if($search!=null){
@@ -41,8 +53,8 @@ $patient = db_query($sql_patients);
           </div>
           <div class="col-md-offset-3 col-md-4">
             <div class="btn-group">
-              <a href="#" class="btn btn-default">today</a>
-              <a href="#" class="btn btn-default <?php echo "active";?>">all</a>              
+              <a href="<?php echo "patients?misc=1" ?>" class="btn btn-default <?php if($misc== 1)echo "active";?>"">today</a>
+              <a href="<?php echo "patients?misc=2" ?>" class="btn btn-default <?php if($misc== 2)echo "active";?>">all</a>             
             </div>
           </div>
           </div>

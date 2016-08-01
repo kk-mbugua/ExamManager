@@ -6,6 +6,9 @@ if(isset($_GET['exam_id'])){
 $aexam = db_query($select);
 
 $_exam = $aexam->fetch_assoc();
+  if($_exam['exam_done']==0){
+      header('Location: examinfo?id='. $id);
+  }
 }
 
 if ($_POST) {
@@ -16,8 +19,10 @@ $report    =   get_input("report");
 //sql statement to insert data into table
 $sql_edit_exam = "UPDATE reports SET report='$report' WHERE exam_id ='$id'";
 db_query($sql_edit_exam);
+$report_taken = "UPDATE exam_info SET report_done = 1  WHERE exam_id ='$id'";
+db_query($report_taken);
 
-header('Location: viewexams?id='. $id);
+header('Location: examinfo?id='. $id);
 }
 ?>
     <div class="section">
@@ -33,6 +38,14 @@ header('Location: viewexams?id='. $id);
             <p>patient : <?php echo $_exam["patient_name"];?></p>
             <p>procedure : <?php echo $_exam["exam_name"];?></p>
             <p>doctor : <?php echo $_exam["req_physician"];?></p>
+          </div>
+
+          <div class="col-md-12">
+            <hr>
+            <div class="btn-group">
+              <a href="#" class="btn btn-default">view Image</a>      
+            </div>
+             <hr>
           </div>
           <div class="col-md-12">
             <form method="post">
