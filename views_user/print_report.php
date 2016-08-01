@@ -16,7 +16,7 @@ $this_result = $a_result->fetch_assoc();
     <h4>Confirm report's author</h4>
         <div class="form-group">
            <label class="control-label">Name:<sup>*</sup></label>
-           <input class="form-control" type="text" name="writer" value="<?php echo $this_result["full_name"];?>" required>
+           <input class="form-control" type="text" name="writer" value="<?php echo $_SESSION["full_name"];?>" required>
         </div>
         <div class="form-group">
            <label class="control-label">Phone number<sup>*</sup></label>

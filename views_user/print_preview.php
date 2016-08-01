@@ -3,7 +3,7 @@ $id = $_GET['exam_id'];
 
 $sql_confirmname = "SELECT patient_details.patient_name, patient_details.phonenumber, "
         . "user_details.full_name, "
-        . "exam_info.exam_name, exam_info.modality, exam_info.date_time, "
+        . "exam_info.exam_name, exam_info.modality, exam_info.created_at, "
         . "reports.created_at, reports.report "
         . "FROM reports "
         . "INNER JOIN patient_details ON reports.patient_id=patient_details.patient_id "
@@ -62,7 +62,7 @@ $to_print = $a_result->fetch_assoc();
         </div>
         <div class="col-md-6">              
                 <div class="panel-body">
-                    <pre>Date of Examination: <b><?php echo $to_print["date_time"];?></b></pre>
+                    <pre>Date of Examination: <b><?php echo $to_print["created_at"];?></b></pre>
                     <pre>Date of Report:     <b><?php echo $to_print["created_at"];?></b></pre>
                 </div>
         </div>                

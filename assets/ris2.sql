@@ -2,17 +2,10 @@
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
-<<<<<<< HEAD
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2016 at 12:00 PM
+-- Generation Time: Aug 01, 2016 at 12:21 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
-=======
--- Host: localhost:3306
--- Generation Time: Aug 01, 2016 at 09:04 AM
--- Server version: 5.5.42
--- PHP Version: 5.6.10
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -43,28 +36,17 @@ CREATE TABLE `exam_info` (
   `exam_reason` text NOT NULL,
   `receipt` varchar(20) NOT NULL,
   `amount` int(11) NOT NULL,
-<<<<<<< HEAD
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `exam_done` tinyint(4) NOT NULL,
   `report_done` tinyint(4) NOT NULL
-=======
-  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `exam_done` int(1) NOT NULL DEFAULT '0',
-  `report_done` int(1) NOT NULL DEFAULT '0'
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `exam_info`
 --
 
-<<<<<<< HEAD
 INSERT INTO `exam_info` (`exam_id`, `performer_id`, `patient_id`, `req_physician`, `modality`, `exam_name`, `exam_reason`, `receipt`, `amount`, `created_at`, `exam_done`, `report_done`) VALUES
 ('1', '1', '578df1530ed11', 'test Doc', 'MX', 'mammoghraph', 'test', '10011', 100, '2016-08-01 09:07:26', 1, 1);
-=======
-INSERT INTO `exam_info` (`exam_id`, `performer_id`, `patient_id`, `req_physician`, `modality`, `exam_name`, `exam_reason`, `receipt`, `amount`, `date_time`, `exam_done`, `report_done`) VALUES
-('1', '1', '578df1530ed11', 'test Doc', 'MX', 'mammoghraph', 'test', '10011', 100, '2016-07-19 12:35:47', 0, 0);
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 
 -- --------------------------------------------------------
 
@@ -73,23 +55,8 @@ INSERT INTO `exam_info` (`exam_id`, `performer_id`, `patient_id`, `req_physician
 --
 
 CREATE TABLE `modalities` (
-  `modality_abbr` varchar(4) NOT NULL,
-  `modality_name` varchar(60) NOT NULL,
-  `install_date` date NOT NULL,
-  `next_service` date NOT NULL
+  `modality_name` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `modalities`
---
-
-INSERT INTO `modalities` (`modality_abbr`, `modality_name`, `install_date`, `next_service`) VALUES
-('', 'XA', '2016-07-28', '2017-07-28'),
-('CR', '', '0000-00-00', '0000-00-00'),
-('DX', 'Digital X-ray', '0000-00-00', '0000-00-00'),
-('MG', '', '0000-00-00', '0000-00-00'),
-('PX', '', '0000-00-00', '0000-00-00'),
-('US', 'Ultra Sound', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -147,7 +114,7 @@ INSERT INTO `patient_details` (`patient_id`, `patient_name`, `birthday`, `phonen
 CREATE TABLE `procedures` (
   `procedure_id` int(11) NOT NULL,
   `procedure_name` varchar(20) NOT NULL,
-  `modality` varchar(2) NOT NULL,
+  `Modality` varchar(2) NOT NULL,
   `price` double DEFAULT NULL,
   `duration` int(11) DEFAULT NULL,
   `created_by` varchar(60) DEFAULT NULL,
@@ -158,7 +125,7 @@ CREATE TABLE `procedures` (
 -- Dumping data for table `procedures`
 --
 
-INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `modality`, `price`, `duration`, `created_by`, `created_on`) VALUES
+INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `Modality`, `price`, `duration`, `created_by`, `created_on`) VALUES
 (1, 'procedure1', 'UX', 1000, 120, 'Mbugua, Kibugi Kamau', '2016-07-22 13:00:35'),
 (2, 'procedure2', 'MX', 2000, 80, 'user', '2016-07-22 13:00:35'),
 (3, 'procedure3', 'DX', 3000, 20, 'mbugua, kibugi kamau', '2016-07-22 13:00:35'),
@@ -184,11 +151,7 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `reviewer_id`, `exam_id`, `patient_id`, `report`, `created_at`) VALUES
-<<<<<<< HEAD
 ('578e24267be3a', '1', '1 ', '578df1530ed11', 'this it a test report', '2016-07-19 12:59:18');
-=======
-('578e24267be3a', '3', '1 ', '578df1530ed11', 'this is test 1jmbkjbkh test', '2016-07-19 12:59:18');
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 
 -- --------------------------------------------------------
 
@@ -203,20 +166,25 @@ CREATE TABLE `user_details` (
   `password` varchar(255) NOT NULL,
   `admin` tinyint(4) NOT NULL,
   `first_login` int(1) NOT NULL DEFAULT '0'
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 
 --
 -- Dumping data for table `user_details`
 --
 
 INSERT INTO `user_details` (`user_id`, `full_name`, `user_name`, `password`, `admin`, `first_login`) VALUES
-(1, 'Sevenseas, Technologies', 'sevenseastech', 'a460f0a5ffed85fe0c46f6abae07a741', 1, 1),
-(2, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
-(3, 'User', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 0, 1);
+(1, '', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1),
+(2, 'mbugua, kibugi kamau', 'kamau', '1a1dc91c907325c69271ddf0c944bc72', 1, 1),
+(3, 'full name', 'user', '1a1dc91c907325c69271ddf0c944bc72', 0, 1),
+(4, '', 'Fischer, Jenny ', '', 1, 0),
+(5, '', 'Simon, Paul ', '0d9116487fb6bead1f8d7baf8255dd7c', 0, 0),
+(6, 'John, Stacy ', 'StacyJohn', '47f4d9098a0a789b8427ae2451f9377f', 1, 0),
+(7, 'John, Jesse Stacy ', 'SJohn', 'lklklklk', 1, 0),
+(8, 'John, Stacy ', 'sjohn', '32a447a420709d644539fb03f5d2e1ad', 1, 0),
+(9, 'Peters, Philip ', 'ppeters', '698ff33221cca6bd133bc2e97ba09bb7', 0, 0),
+(10, 'pete, peter ', 'ppete', '39ec09bb4ccb32ad81b6f5fd782be8d1', 0, 0),
+(11, 'Biko, Charlse ', 'cbiko', 'f73c1bede30ccd3e60e28d32c5a7c241', 0, 0),
+(12, 'Kibe, Njoki ', 'nkibe', '9632f662105e06da2a9a50632c31edf1', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -232,7 +200,7 @@ ALTER TABLE `exam_info`
 -- Indexes for table `modalities`
 --
 ALTER TABLE `modalities`
-  ADD PRIMARY KEY (`modality_abbr`);
+  ADD PRIMARY KEY (`modality_name`);
 
 --
 -- Indexes for table `patient_details`
@@ -271,11 +239,7 @@ ALTER TABLE `procedures`
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-<<<<<<< HEAD
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-=======
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
->>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
