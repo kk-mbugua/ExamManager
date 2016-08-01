@@ -26,13 +26,13 @@ $repid = uniqid();
 //sql statement to insert data into table
 $sql_insert_new_exam = 
         "INSERT INTO exam_info(exam_id, performer_id, patient_id, req_physician, modality, exam_name, exam_reason, receipt, amount) VALUES ('$id','$user_id','$identification','$req_doctor','$modality','$exam_name','$description', '$receipt', $amount)";
-        $report_insert = "INSERT INTO reports(id, exam_id, patient_id) VALUES ('$repid','$id','$user_id')";
+$report_insert = "INSERT INTO reports(id, exam_id, patient_id) VALUES ('$repid','$id','$identification')";
 
 //qureying the DATABASE
 db_query($sql_insert_new_exam);
 db_query($report_insert);
 
-   header('Location: viewexams?id='. $id);
+   header('Location: examinfo?id='. $id);
 
 }
 ?>

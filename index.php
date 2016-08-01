@@ -2,6 +2,7 @@
 include 'app/conn_db.php';
 include 'app/functions.php';
 include 'app/pages.php';
+//error_reporting(0);
 session_start();
 define('ROOT', dirname(__DIR__));
 $home = "/ExamManager";

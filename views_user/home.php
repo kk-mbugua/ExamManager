@@ -13,7 +13,7 @@
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
                     <img src="assets/img/newpatient.png" class="img-responsive simple-menu">
-                    <h2 class="text-center">Add New Exam</h2>
+                    <h2 class="text-center">New Exam</h2>
                 </div>
            </div>
           </a>
@@ -30,7 +30,7 @@
         <a href="newpatient" class="btn btn-default btn-block btn-large">New patient</a>
         <a onclick="document.getElementById('searc').style.display='block';" class="btn btn-default btn-block btn-large">Existing patient</a>
         <div id="searc" style="display:none;">
-        <form role="form" method="post" action="patients">
+        <form role="form" method="get" action="patients">
               <div class="form-group">
                 <div class="input-group">
                   <input type="text" class="form-control" name="search" placeholder="Enter Patient Name">
@@ -47,11 +47,11 @@
 </div>
       </div>
       <div class="col-md-4">
-          <a href="schedule">
+          <a href="exams">
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
                     <img src="assets/img/calendar.png" class="img-responsive simple-menu">
-                    <h2 class="text-center">Exam Schedule</h2>
+                    <h2 class="text-center">View Exams</h2>
                 </div>
            </div>
           </a>

@@ -1,12 +1,12 @@
 <?php
 //get user id from url
-$identification = $_GET['id'];
+ $identification = $_GET['id'];
 
 //write the sql statement and run the query
-$sql_patient = "SELECT * FROM `patient_details` WHERE `patient_id` = '$identification'";
+$sql_patient = "SELECT * FROM patient_details WHERE patient_id = '$identification'";
 $a_patient = db_query($sql_patient);
 $this_patient = $a_patient->fetch_assoc();
-
+echo $this_patient["patient_name"];
 //write the sql statement and run the query
 $sql_schedule = "SELECT exam_info.exam_id, patient_details.patient_name, exam_info.req_physician, exam_info.exam_name, exam_info.modality, exam_info.date_time  FROM exam_info INNER JOIN patient_details ON exam_info.patient_id=patient_details.patient_id where exam_info.patient_id='$identification'";
 $schedule = db_query($sql_schedule);

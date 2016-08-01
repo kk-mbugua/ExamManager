@@ -38,7 +38,7 @@ switch ($pagename) {
         return  $path;
         break;
     
-    case 'schedule':
+    case 'exams':
         return  $path;
         break;
     
@@ -58,7 +58,7 @@ switch ($pagename) {
         return  $path;
         break;
 
-    case 'viewexams':
+    case 'examinfo':
         return  $path;
         break;
 

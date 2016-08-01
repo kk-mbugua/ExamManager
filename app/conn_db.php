@@ -9,7 +9,7 @@ function db_open($db_name = "ris2") {
     //set database connection variables
     $servername     =   "localhost";
     $username       =   "root";
-    $password       =   ""; 
+    $password       =   "root"; 
     
     //open db
     $conn = new mysqli($servername, $username, $password, $db_name);
@@ -48,7 +48,7 @@ function error_handler($error_msg, $mysqli_errno, $mysqli_errmsg) {
     }
     
     echo "The following error(s) has occured:" . "<br>" . $error_msg;
-    die();
+   // die();
 }
 
 
@@ -62,7 +62,7 @@ function db_query($sql) {
     
     //run the mysql querry
     $result = $conn->query($sql);
-    
+    affected();
     //close the databse
     db_close();
     

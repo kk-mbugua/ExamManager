@@ -1,34 +1,34 @@
 <?php 
-echo $page = isset($_GET['pg']) ? $_GET['pg']:1;
+$page = isset($_GET['pg']) ? $_GET['pg']:1;
+$search = isset($_GET['search']) ? $_GET['search']:null;
 $start = ($page > 1) ?($page *12)-12 :0;
-//write the sql statement and run the query
-$sql_schedule = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details LIMIT {$start} , 12";
+$url_search = "";
+$sql_patients = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details LIMIT {$start} , 12";
+$p_count ="SELECT COUNT(*) FROM patient_details";
+$srch = 0;
 
-$patient = db_query($sql_schedule);
+if($search!=null){
+      $srch = 1;
+      $sql_patients = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%'  LIMIT {$start} , 12";
+      $url_search = "&search=".$search;
+      $p_count ="SELECT COUNT(*) FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%' ";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
-    $search = ($_POST["search"]);
-
-    if(isset($_GET["search"])){
-      $search=$_GET['search'];
-    }
-    $sql_patient_search = "SELECT patient_id, patient_name, phonenumber, birthday FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%'  LIMIT {$start} , 12";
-    $patient = db_query($sql_patient_search);
-    }
+}
+$patient = db_query($sql_patients);
 
 ?>
 <div class="section">
       <div class="container">
-        <div class="row">
-        
+
           <div class="panel panel-default panel-faded">
           <div class="panel-body">
+        <div class="row">
          <div class="col-md-12">
         
             <h1>Patients</h1>
           </div>
           <div class="col-md-5">
-            <form role="form" method="post">
+            <form role="form" method="get">
               <div class="form-group">
                 <div class="input-group">
                   <input type="text" class="form-control" name="search" placeholder="Enter Patient Name">
@@ -39,6 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
               </div>
             </form>
           </div>
+          <div class="col-md-offset-3 col-md-4">
+            <div class="btn-group">
+              <a href="#" class="btn btn-default">today</a>
+              <a href="#" class="btn btn-default <?php echo "active";?>">all</a>              
+            </div>
           </div>
           </div>
           </div>
@@ -58,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
                     <div class=" file-list">
                         <a class="pull-left img--space" href="patientinfo?id=<?php echo $row["patient_id"]?>"><img class="media-object" src="assets/img/avatar.jpg" height="79" width="79"></a>
                         <div class="media-body">
-                          <a href="patientinfo?id=<?php echo $row["patient_id"]?>"><h4 class="name"><?php echo $row["patient_name"];?></h4></a>
+                          <a href="patientinfo?id=<?php echo $row['patient_id'];?>" ><h4 class="name"><?php echo $row["patient_name"];?></h4></a>
                           <div> mobile .No :<?php echo $row["phonenumber"];?></div>
                           <div> Date Of Birth:<?php echo $row["birthday"];?></div>
                         </div>
@@ -71,18 +76,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  || isset($_GET['search'])) {
           </div>
         </div>
         <?php 
-            $result=db_query("SELECT COUNT(*) FROM patient_details;");
-             $tot = $result->fetch_assoc();
-             $total = ceil($tot["COUNT(*)"]/12);
+          $res = db_query($p_count);
+          $tot = $res->fetch_assoc();
+          $tot = $tot['COUNT(*)'];
+          $total = ceil($tot/12);
         ?>
         <div class="row">
         <div class="col-md-12">
+
         <ul class="pagination">
         <?php for($x = 1;$x <= $total ; $x++): ?>
-          <li><a href="patients?pg=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+          <li><a href="patients?pg=<?php echo $x.$url_search; ?>"><?php echo $x; ?></a></li>
         <?php endfor; ?>
         </ul>
         </div>
         </div>
+      </div>
       </div>
     </div>
