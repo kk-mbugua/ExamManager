@@ -104,7 +104,11 @@ $schedule = db_query($sql_schedule);
             <td><?php echo $row["exam_name"]?></td>
             <td><?php echo $row["modality"]?></td>
             <td><?php echo $row["req_physician"]?></td>
+<<<<<<< HEAD
             <td><?php echo $row["created_at"]?></td>
+=======
+            <td><?php echo $row["date_time"]?></td>
+>>>>>>> 9e6129050e5672cc8dcb8b5ff01a24a3a4c397da
             <td><a class="btn btn-default" href="examinfo?id=<?php echo $row['exam_id'];?>">view</a></td>
             </tr>
             <?php }

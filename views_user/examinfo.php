@@ -24,7 +24,7 @@ $results = $exam->fetch_assoc();
          
       <div class="col-md-12">
         <div class="col-md-3">
-        <dt>Pateint Name :</dt>
+        <dt>Patient Name :</dt>
         </div>
         <div class="col-md-9">
         <dd><a href="patientinfo?id=<?php echo $results['patient_id'];?>"><?php echo $results['patient_name'];?></a></dd>
@@ -48,7 +48,7 @@ $results = $exam->fetch_assoc();
         <dd><?php echo $results['created_at'];?></dd>
         </div>
         <div class="col-md-3">
-        <dt>decsription :</dt>
+        <dt>description :</dt>
         </div>
         <div class="col-md-9">
         <dd><?php echo $results['exam_reason'];?></dd>
@@ -69,6 +69,7 @@ $results = $exam->fetch_assoc();
               <?php else: ?>
               <?php if($results['report_done']==1): ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default"> Edit Report</a>
+              <a href="print_report?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
             <?php else: ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Make Report</a>
             <?php endif; ?>

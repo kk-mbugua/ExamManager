@@ -26,6 +26,12 @@ if(!empty($_GET['page'])){
     $page = "home";   
 }
 
+if($page == "print_preview") {
+    require 'views_user/print_preview.php';
+}
+
+else{
+    
 require 'templates/header.php';
 require 'templates/navigation.php';
 
@@ -49,5 +55,6 @@ else{
             require go_to_admin($page);
         }
     }
+}
 }
 ?>
