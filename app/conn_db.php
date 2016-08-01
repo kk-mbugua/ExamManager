@@ -9,7 +9,7 @@ function db_open($db_name = "ris2") {
     //set database connection variables
     $servername     =   "localhost";
     $username       =   "root";
-    $password       =   "root"; 
+    $password       =   ""; 
     
     //open db
     $conn = new mysqli($servername, $username, $password, $db_name);

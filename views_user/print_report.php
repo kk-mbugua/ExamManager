@@ -11,7 +11,8 @@ $this_result = $a_result->fetch_assoc();
 
 ?>
 <div class="section">
-<form method="get" action="print_preview">
+<div class="col-md-5">
+<form method="get" action="views_user/print_preview.php">
     <h4>Confirm report's author</h4>
         <div class="form-group">
            <label class="control-label">Name:<sup>*</sup></label>
@@ -26,4 +27,5 @@ $this_result = $a_result->fetch_assoc();
         </div>
         <button type="submit" class="btn btn-default">Confirm</button>
 </form>   
+</div>
 </div>

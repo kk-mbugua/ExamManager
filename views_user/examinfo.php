@@ -8,7 +8,6 @@ if(isset($_GET['id'])){
 $exam = db_query($select);
 
 $results = $exam->fetch_assoc();
-var_dump($results);
 }
 ?>
   <div class="section">
@@ -25,7 +24,7 @@ var_dump($results);
          
       <div class="col-md-12">
         <div class="col-md-3">
-        <dt>Pateint Name :</dt>
+        <dt>Patient Name :</dt>
         </div>
         <div class="col-md-9">
         <dd><a href="patientinfo?id=<?php echo $results['patient_id'];?>"><?php echo $results['patient_name'];?></a></dd>
@@ -49,7 +48,7 @@ var_dump($results);
         <dd><?php echo $results['date_time'];?></dd>
         </div>
         <div class="col-md-3">
-        <dt>decsription :</dt>
+        <dt>description :</dt>
         </div>
         <div class="col-md-9">
         <dd><?php echo $results['exam_reason'];?></dd>
@@ -67,6 +66,7 @@ var_dump($results);
               <a href="edit-exam?id=<?php echo $results['exam_id'];?>" class="btn btn-default">Edit Exam</a>
               <?php if($results['report']): ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default"> Edit Report</a>
+              <a href="print_report?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
             <?php else: ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Make Report</a>
             <?php endif; ?>
