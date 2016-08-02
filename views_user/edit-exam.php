@@ -24,7 +24,7 @@ $sql_edit_exam =
         "UPDATE exam_info SET req_physician='$req_doctor', exam_reason='$description', modality='$group', exam_name='$exam_name', patient_id='$patient_id' WHERE exam_id ='$exam_id'";
 db_query($sql_edit_exam);
 
-header('Location: viewexams?id='.$exam_id);
+header('Location: examinfo?id='.$exam_id);
 }
 ?>
 

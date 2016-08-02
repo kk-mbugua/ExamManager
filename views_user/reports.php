@@ -20,7 +20,7 @@ $schedule = db_query($sql_schedule);
                   <div class="panel panel-default panel-faded">
                     <div class=" file-list">
                         <div class="media-body">
-                          <a href="viewexams?id=<?php echo $row["exam_id"]?>"><h4 class="name"><?php echo $row["patient_name"];?></h4></a>
+                          <a href="examinfo?id=<?php echo $row["exam_id"]?>"><h4 class="name"><?php echo $row["patient_name"];?></h4></a>
                           <div> mobile .No :<?php echo $row["doctor"];?></div>
                           <div> Date Of Birth:<?php echo $row["patients name"];?></div>
                         </div>
