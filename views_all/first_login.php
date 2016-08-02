@@ -24,10 +24,10 @@ else {
        <div class="col-md-offset-4  col-md-4"><br>
           <div class="panel panel-default panel-faded">
             <div class="panel-body">
-            <h2><?php echo $_SESSION["full_name"]?></h2>
+            <h2><?php e($_SESSION["full_name"])?></h2>
             <h3>Karibu</h3>
             <p>Please change your password</p>
-            <p><?php if(isset($passerror)){echo $passerror;}?></p>
+            <p><?php if(isset($passerror)){e($passerror);}?></p>
             <form method="post">
                 <div class="form-group">
                   <label>New password</label>
