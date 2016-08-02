@@ -45,27 +45,27 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             <form role="form" method="post">
                 <div class="form-group">
                     <label class="control-label">Procedure Name<sup>*</sup></label>
-                    <input class="form-control" type="text" name="procedure_name" value="<?php echo $this_procedure["procedure_name"];?>">
+                    <input class="form-control" type="text" name="procedure_name" value="<?php  e($this_procedure["procedure_name"]);?>">
                 </div>
                 <div class="form-group">
                    <label class="control-label">Modality<sup>*</sup></label>
                    <select class="form-control" name="modality">
-                       <option value="<?php echo $this_procedure["modality"];?>"><?php echo $this_procedure["modality"];?></option>
+                       <option value="<?php  $this_procedure["modality"];?>"><?php  e($this_procedure["modality"]);?></option>
                    <?php 
                    while ($row = $modalities->fetch_assoc()) {
                        ?>
-                       <option value="<?php echo $row["modality_abbr"];?>"><?php echo $row["modality_abbr"];?></option>
+                       <option value="<?php  e($row["modality_abbr"]);?>"><?php  e($row["modality_abbr"]);?></option>
                    <?php }
                    ?>
                    </select>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Price</label>
-                  <input class="form-control" type="text" name="price" value="<?php echo $this_procedure["price"];?>">
+                  <input class="form-control" type="text" name="price" value="<?php  e($this_procedure["price"]);?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Duration (in minutes)</label>
-                  <input class="form-control" type="text" name="duration" value="<?php echo $this_procedure["duration"];?>">
+                  <input class="form-control" type="text" name="duration" value="<?php e($this_procedure["duration"]);?>">
                 </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>

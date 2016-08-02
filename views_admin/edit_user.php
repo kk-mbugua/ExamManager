@@ -59,24 +59,24 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="control-label">First Name</label>
-                          <input class="form-control" type="text" name="f_name" value="<?php echo $names[1];?>">
+                          <input class="form-control" type="text" name="f_name" value="<?php e($names[1]);?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="control-label">Middle Names</label>
-                          <input class="form-control" type="text" name="m_name" value="<?php echo $names[2];?>">
+                          <input class="form-control" type="text" name="m_name" value="<?php e($names[2]);?>">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="control-label">Last Names</label>
-                          <input class="form-control" type="text" name="l_name" value="<?php echo $names[0];?>">
+                          <input class="form-control" type="text" name="l_name" value="<?php e($names[0]);?>">
                         </div>
                     </div>
                 </div>
                 <div class="row i">
-                    Give user administrative privileges<input type="checkbox" name="admin" value="1" <?php if($admin > 0) {echo "checked";}?>>
+                    Give user administrative privileges<input type="checkbox" name="admin" value="1" <?php if($admin > 0) {e("checked");}?>>
                 </div>
                 
               <button type="submit" class="btn btn-default">Submit</button>

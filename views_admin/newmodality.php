@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($year = date(Y); $year >= 2014; $year--) {
                             ?>
-                            <option value="<?php echo $year;?>"><?php echo $year;?></option>
+                            <option value="<?php e($year);?>"><?php e($year);?></option>
                         <?php }
                         ?>
                         </select>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($month = 1; $month <= 12; $month++) {
                             ?>
-                            <option value="<?php echo $month_array[$month-1];?>"><?php echo $month_array[$month-1];?></option>
+                            <option value="<?php e($month_array[$month-1]);?>"><?php e($month_array[$month-1]);?></option>
                         <?php }
                         ?>
                         </select>
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($day = 1; $day <= 31; $day++) {
                             ?>
-                            <option value="<?php echo $day;?>"><?php echo $day;?></option>
+                            <option value="<?php e($day);?>"><?php e($day);?></option>
                         <?php }
                         ?>
                         </select>
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($year = date(Y); $year <= (date(Y) + 5); $year++) {
                             ?>
-                            <option value="<?php echo $year;?>"><?php echo $year;?></option>
+                            <option value="<?php e($year);?>"><?php e($year);?></option>
                         <?php }
                         ?>
                         </select>
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($month = 1; $month <= 12; $month++) {
                             ?>
-                            <option value="<?php echo $month_array[$month-1];?>"><?php echo $month_array[$month-1];?></option>
+                            <option value="<?php e($month_array[$month-1];)?>"><?php e($month_array[$month-1]);?></option>
                         <?php }
                         ?>
                         </select>
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($day = 1; $day <= 31; $day++) {
                             ?>
-                            <option value="<?php echo $day;?>"><?php echo $day;?></option>
+                            <option value="<?php e($day);?>"><?php e($day);?></option>
                         <?php }
                         ?>
                         </select>

@@ -27,7 +27,7 @@ $this_user = $a_user->fetch_assoc();
         <dt>User's Names :</dt>
         </div>
         <div class="col-md-9">
-        <dd><?php echo $this_user["user_name"];?></dd>
+        <dd><?php e($this_user["user_name"]);?></dd>
         </div>
       </div>
     </div>
@@ -39,8 +39,8 @@ $this_user = $a_user->fetch_assoc();
         <div class="row">
           <div class="col-md-12">
             <div class="btn-group">
-              <a href="newexam?patient_id=<?php echo $identification ?>" class="btn btn-default">Schedule Exam</a>
-              <a href="edit-patient?id=<?php echo $identification;?>" class="btn btn-default">Edit Info</a>
+              <a href="newexam?patient_id=<?php  e($identification) ?>" class="btn btn-default">Schedule Exam</a>
+              <a href="edit-patient?id=<?php e($identification);?>" class="btn btn-default">Edit Info</a>
             </div>
           </div>
         </div>
@@ -75,19 +75,16 @@ $this_user = $a_user->fetch_assoc();
             </tr>
           </thead>
           <tbody>
-            <?php
-             while ($row = $schedule->fetch_assoc()) {
-                ?>
+            <?php while ($row = $schedule->fetch_assoc()) { ?>
             <tr> 
-            <td><?php echo $row["patient_name"]?></td>
-            <td><?php echo $row["exam_name"]?></td>
-            <td><?php echo $row["modality"]?></td>
-            <td><?php echo $row["req_physician"]?></td>
-            <td><?php echo $row["date_time"]?></td>
-            <td><a class="btn btn-default" href="viewexams?id=<?php echo $row['exam_id'];?>">view</a></td>
+            <td><?php e($row["patient_name"])?></td>
+            <td><?php e($row["exam_name"])?></td>
+            <td><?php e($row["modality"])?></td>
+            <td><?php e($row["req_physician"])?></td>
+            <td><?php e($row["date_time"])?></td>
+            <td><a class="btn btn-default" href="viewexams?id=<?php e($row['exam_id']);?>">view</a></td>
             </tr>
-            <?php }
-            ?>
+            <?php } ?>
           </tbody>
         </table>
       </div>

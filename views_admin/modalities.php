@@ -46,18 +46,15 @@ if(isset($_GET['delete'])){
                       </tr>  
                     </thead>
                     <tbody>
-                   <?php 
-                   while ($row = $modality->fetch_assoc()) {
-                       ?>
+                   <?php while ($row = $modality->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php echo $row["modality_abbr"];?></td>
-                        <td><?php echo $row["modality_name"];?></td>
-                        <td><?php echo $row["install_date"];?></td>
-                        <td><?php echo $row["next_service"];?></td>
-                        <td><a class="btn btn-default" title="delete" href="modalities?delete=<?php echo $row['modality_abbr'];?>"> <img src="assets/img/delete.png"></a></td>
+                        <td><?php e($row["modality_abbr"]);?></td>
+                        <td><?php e($row["modality_name"]);?></td>
+                        <td><?php e($row["install_date"]);?></td>
+                        <td><?php e($row["next_service"]);?></td>
+                        <td><a class="btn btn-default" title="delete" href="modalities?delete=<?php e($row['modality_abbr']);?>"> <img src="assets/img/delete.png"></a></td>
                     </tr>
-                   <?php }
-                   ?>
+                   <?php } ?>
                     </tbody>
                 </table>
           </div>

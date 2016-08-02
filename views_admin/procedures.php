@@ -61,12 +61,12 @@ if(isset($_GET['delete'])){
                    while ($row = $procedure->fetch_assoc()) {
                        ?>
                     <tr>
-                        <td><?php echo $row["procedure_name"];?></td>
-                        <td><?php echo $row["modality"];?></td>
-                        <td><?php echo $row["price"];?></td>
-                        <td><?php echo $row["duration"];?></td>
-                        <td><a class="btn btn-default" title="edit" href="edit_procedure?id=<?php echo $row['procedure_id'];?>"> <img src="assets/img/edit.png"></a></td>
-                        <td><a class="btn btn-default" title="delete" href="procedures?delete=<?php echo $row['procedure_name'] . "&id=" . $row['procedure_id'];?>"> <img src="assets/img/delete.png"></a></td>
+                        <td><?php e($row["procedure_name"]);?></td>
+                        <td><?php e($row["modality"]);?></td>
+                        <td><?php e($row["price"]);?></td>
+                        <td><?php e($row["duration"]);?></td>
+                        <td><a class="btn btn-default" title="edit" href="edit_procedure?id=<?php e($row['procedure_id']);?>"> <img src="assets/img/edit.png"></a></td>
+                        <td><a class="btn btn-default" title="delete" href="procedures?delete=<?php e( $row['procedure_name'] . "&id=" . $row['procedure_id']);?>"> <img src="assets/img/delete.png"></a></td>
                     </tr>
                    <?php }
                    ?>

@@ -46,7 +46,7 @@ $modalities = db_query($sql_modalities);
                    <?php 
                    while ($row = $modalities->fetch_assoc()) {
                        ?>
-                       <option value="<?php echo $row["modality_abbr"];?>"><?php echo $row["modality_abbr"];?></option>
+                       <option value="<?php e($row["modality_abbr"]);?>"><?php e($row["modality_abbr"]);?></option>
                    <?php }
                    ?>
                    </select>
