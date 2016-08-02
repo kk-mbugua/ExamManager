@@ -110,7 +110,7 @@ $exams = db_query($sql_exams);
             </tr>
             <?php } ?>
           <?php else: ?>
-            <h3>  no results </h3>
+            <h3>  no Exams </h3>
           <?php endif; ?>
           </tbody>
         </table>
@@ -126,7 +126,7 @@ $exams = db_query($sql_exams);
         <div class="col-md-12">
         <ul class="pagination">
         <?php for($x = 1;$x <= $total ; $x++): ?>
-          <li><a href="exams?pg=<?php echo $x.$url_search; ?>"><?php echo $x; ?></a></li>
+          <li><a href="exams?pg=<?php echo $x.$url_search."&misc=".$misc; ?>"><?php echo $x; ?></a></li>
         <?php endfor; ?>
         </ul>
         </div>

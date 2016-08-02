@@ -9,7 +9,7 @@ switch ($misc) {
      $miscellaneous =" ";
      break;
    default:
-     $miscellaneous =" WHERE created_at >=curdate() ";
+     $miscellaneous =" WHERE created_at >= curdate() ";
      break;
 }
 $search = isset($_GET['search']) ? $_GET['search']:null;
@@ -26,7 +26,7 @@ if($search!=null){
       $p_count ="SELECT COUNT(*) FROM patient_details WHERE patient_name LIKE '%$search%' OR national_id LIKE '%$search%' OR phonenumber LIKE '%$search%' ";
 
 }
-$patient = db_query($sql_patients);
+$patients = db_query($sql_patients);
 
 ?>
 <div class="section">
@@ -67,9 +67,8 @@ $patient = db_query($sql_patients);
         <div class="row">
           <div class="col-md-12">
               <ul class="media-list">
-                 <?php 
-                 while ($row = $patient->fetch_assoc()) {
-                     ?>
+               <?php if($patients->num_rows > 0): ?>
+                 <?php while ($row = $patients->fetch_assoc()) { ?>
                  <li class="col-md-6">
                   <div class="panel panel-default panel-faded">
                     <div class=" file-list">
@@ -82,8 +81,10 @@ $patient = db_query($sql_patients);
                     </div>
                   </div>
                  </li>
-                 <?php }
-                 ?>                 
+                 <?php } ?>
+                  <?php else: ?>
+            <h3>  no Patients </h3>
+          <?php endif; ?>                
                </ul>  
           </div>
         </div>
@@ -98,7 +99,7 @@ $patient = db_query($sql_patients);
 
         <ul class="pagination">
         <?php for($x = 1;$x <= $total ; $x++): ?>
-          <li><a href="patients?pg=<?php echo $x.$url_search; ?>"><?php echo $x; ?></a></li>
+          <li><a href="patients?pg=<?php echo $x.$url_search."&misc=".$misc; ?>"><?php echo $x; ?></a></li>
         <?php endfor; ?>
         </ul>
         </div>

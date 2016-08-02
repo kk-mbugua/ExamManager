@@ -51,7 +51,7 @@ $results = $exam->fetch_assoc();
         <dt>description :</dt>
         </div>
         <div class="col-md-9">
-        <dd><?php echo $results['exam_reason'];?></dd>
+        <dd><?php echo e($results['exam_reason']);?></dd>
         </div>
       </div>
       </div>

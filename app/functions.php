@@ -4,9 +4,14 @@ function get_input($input) {
 $output = ($_POST["$input"]);
 $output = strip_tags($output);
 $output = stripslashes($output);
+//$output = mysql_real_escape_string($output);
 return $output;
 }
-    
+
+function e($value){
+    return htmlspecialchars($value,ENT_QUOTES);
+}
+
 //date picker <html select tag options>
 //days
 function cal_days() {
