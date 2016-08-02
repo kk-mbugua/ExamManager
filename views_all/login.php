@@ -27,17 +27,7 @@ if ($password == $this_user["password"]) {
     }
     
 else {
-    echo '
-
-<div class="section">
-    <div class="container"><div class="row">
-          <div class="col-md-12">
-            <div class="alert alert-danger alert-info">
-              <strong>Error!</strong>wrong username or password.</div>
-          </div>
-        </div>
-        </div>
-        </div>';
+        toast("Error!</strong>wrong username or password.");
 }
 
 }

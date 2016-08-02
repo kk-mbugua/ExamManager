@@ -37,4 +37,19 @@ function cal_years() {
         echo ("<option value=\"$year\">$year</option<br>");
     }
 }
+
+//reports user readable error message after an opperation
+function toast($msg) {
+    echo '
+
+    <div class="section">
+        <div class="container"><div class="row">
+          <div class="col-md-12">
+                <div class="alert alert-danger alert-info">
+                    <strong>'. $msg .'</div>
+                </div>
+            </div>
+        </div>
+    </div>';
+}
 ?>
