@@ -15,6 +15,10 @@ function go_to_all($pagename){
         case 'first_login':
             return  $path;
             break;
+        
+        case 'settings':
+            return $path;
+                break;
 
         default: //if no page is found show the error page
             return  ROOT . "/ExamManager/views_all/errorpage.php";

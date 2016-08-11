@@ -22,7 +22,8 @@ if ($password == $this_user["password"]) {
     
     //for session expiry
     $_SESSION["start_time"]        = time();
-    
+        
+        die();
         header("Location: /ExamManager/");
     }
     
