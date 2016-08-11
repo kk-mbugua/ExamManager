@@ -21,7 +21,7 @@ $current_date_time = date("Y-m-d G:i:s");
  
 //sql statement to insert data into table
 $sql_edit_exam = 
-        "UPDATE exam_info SET req_physician='$req_doctor', exam_reason='$description', modality='$group', exam_name='$exam_name', patient_id='$patient_id' WHERE exam_id ='$exam_id'";
+        "UPDATE exam_info SET req_physician='$req_doctor', exam_reason='$description', modality='$group', exam_name='$exam_name' WHERE exam_id ='$exam_id'";
 db_query($sql_edit_exam);
 
 header('Location: examinfo?id='.$exam_id);

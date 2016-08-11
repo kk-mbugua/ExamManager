@@ -2,17 +2,17 @@
 
 <div class="section">
   <div class="container">
-      <br>
-  </div>
-</div>
-<div class="section">
-  <div class="container">
+      <div class="col-md-offset-3  col-md-6">
+            <h1 class="text-center landing-top" >Exam Manager</h1>
+            <h4 class="text-center landing-bottom">Powered by SST</h4>
+            <hr>
+        </div>
     <div class="row">
       <div class="col-md-4 ">
           <a data-toggle="modal" data-target="#myModal">
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
-                    <img src="assets/img/newpatient.png" class="img-responsive simple-menu">
+                    <img src="assets/img/newexam.png" class="img-responsive simple-menu">
                     <h2 class="text-center">New Exam</h2>
                 </div>
            </div>
@@ -50,7 +50,7 @@
           <a href="exams">
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
-                    <img src="assets/img/calendar.png" class="img-responsive simple-menu">
+                    <img src="assets/img/viewexams.png" class="img-responsive simple-menu">
                     <h2 class="text-center">View Exams</h2>
                 </div>
            </div>

@@ -15,9 +15,9 @@ if ($_POST) {
 
 //load data from forms into variables    
 $report    =   get_input("report");
-
+$reviewer_id= $_SESSION['user_id'];
 //sql statement to insert data into table
-$sql_edit_exam = "UPDATE reports SET report='$report' WHERE exam_id ='$id'";
+$sql_edit_exam = "UPDATE reports SET report='$report',reviewer_id='$reviewer_id' WHERE exam_id ='$id'";
 db_query($sql_edit_exam);
 $report_taken = "UPDATE exam_info SET report_done = 1  WHERE exam_id ='$id'";
 db_query($report_taken);

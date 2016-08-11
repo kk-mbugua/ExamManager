@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2016 at 12:21 PM
+-- Generation Time: Aug 03, 2016 at 03:42 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -36,7 +36,7 @@ CREATE TABLE `exam_info` (
   `exam_reason` text NOT NULL,
   `receipt` varchar(20) NOT NULL,
   `amount` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `exam_done` tinyint(4) NOT NULL,
   `report_done` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -46,7 +46,10 @@ CREATE TABLE `exam_info` (
 --
 
 INSERT INTO `exam_info` (`exam_id`, `performer_id`, `patient_id`, `req_physician`, `modality`, `exam_name`, `exam_reason`, `receipt`, `amount`, `created_at`, `exam_done`, `report_done`) VALUES
-('1', '1', '578df1530ed11', 'test Doc', 'MX', 'mammoghraph', 'test', '10011', 100, '2016-08-01 09:07:26', 1, 1);
+('1', '3', '578df1530ed11', 'max', 'MX', 'mammoghraph', 'rhbanf htrhr hjrjr yg btrhrt rthrtthrth thrth ', 'bthts ', 5472, '2016-08-02 08:53:06', 1, 1),
+('57a0617c7bcd9', '3', '578df0a3c1fab', 'MARTIN', 'Se', 'x-ray', 'broken arm', '3000', 1000, '2016-08-02 09:01:48', 1, 1),
+('57a1e578c4cc6', '3', '57a1e4df067d0', 'de whoever', 'Se', 'mammoghraph', 'rfkrbl rjfgbngb dffgnkb ', '10000xex22', 1000, '2016-08-03 12:37:12', 1, 1),
+('57a1e93467306', '3', '578df1530ed11', 'iiii', 'Se', 'klll', 'hhjj', 'uuii', 1000, '2016-08-03 12:53:08', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +106,8 @@ INSERT INTO `patient_details` (`patient_id`, `patient_name`, `birthday`, `phonen
 ('578f6ffc372e0', 'mbugua, kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
 ('578f708a2ed82', 'idhjf, ajlkjfaskdjf ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
 ('578f70c02c236', 'x, lll ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
-('578f721975535', 'z, z ', '2016-04-07', 'zzzzzzzzzz', 'zzzxxzx', '', 'M', '2016-08-01 08:40:54');
+('578f721975535', 'z, z ', '2016-04-07', 'zzzzzzzzzz', 'zzzxxzx', '', 'M', '2016-08-01 08:40:54'),
+('57a1e4df067d0', 'last, first middle', '1970-01-01', '2323232322', '42343243', '0', 'F', '2016-08-03 12:34:39');
 
 -- --------------------------------------------------------
 
@@ -151,7 +155,10 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `reviewer_id`, `exam_id`, `patient_id`, `report`, `created_at`) VALUES
-('578e24267be3a', '1', '1 ', '578df1530ed11', 'this it a test report', '2016-07-19 12:59:18');
+('57a05f6a688ff', '3', '1', '578df1530ed11', 'ethbt ethtt eth4trh tr', '2016-08-02 08:52:58'),
+('57a0617c7bcee', '3', '57a0617c7bcd9', '578df0a3c1fab', 'lets hope it works!', '2016-08-02 09:01:48'),
+('57a1e578c4cd9', '3', '57a1e578c4cc6', '57a1e4df067d0', 'thyty y5yyj  5hy6u yy3j6yju6j w6rw\r\n\r\n\r\nhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\r\n\r\n\r\n\r\nhhhhhhhhhhhhhhh', '2016-08-03 12:37:12'),
+('57a1e9346731b', '', '57a1e93467306', '578df1530ed11', '', '2016-08-03 12:53:08');
 
 -- --------------------------------------------------------
 
@@ -165,7 +172,7 @@ CREATE TABLE `user_details` (
   `user_name` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `admin` tinyint(4) NOT NULL,
-  `first_login` int(1) NOT NULL DEFAULT '0'
+  `first_login` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

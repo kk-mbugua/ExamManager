@@ -45,3 +45,15 @@ body{
 .media-object {
     display: block;
 }
+
+.landing-top{
+    color: #fff;
+    font-size: 60px;
+     font-weight: 700;
+
+}
+.landing-bottom{
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+
+}
