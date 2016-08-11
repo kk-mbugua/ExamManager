@@ -21,11 +21,7 @@ $schedule = db_query($sql_schedule);
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
-        <img src="assets/img/viewexam.png"
-        class="center-block img-rounded img-responsive">
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
          <div class="col-md-3">
         <dt>Patient's Names :</dt>
         </div>

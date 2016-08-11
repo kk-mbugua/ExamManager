@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         <?php 
                         for ($month = 1; $month <= 12; $month++) {
                             ?>
-                            <option value="<?php e($month_array[$month-1];)?>"><?php e($month_array[$month-1]);?></option>
+                            <option value="<?php e($month_array[$month-1]);?>"><?php e($month_array[$month-1]);?></option>
                         <?php }
                         ?>
                         </select>

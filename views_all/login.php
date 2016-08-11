@@ -37,17 +37,22 @@ else {
 
 <div class="section">
     <div class="container">
+        <div class="col-md-offset-3  col-md-6">
+            <h1 class="text-center landing-top" >Exam Manager</h1>
+            <h4 class="text-center landing-bottom">Powered by SST</h4>
+            <hr>
+        </div>
        <div class="col-md-offset-4  col-md-4"><br>
           <div class="panel panel-default panel-faded">
             <div class="panel-body">
-            <h1>Login</h1>
+            <h1 class="text-center">Login</h1>
             <form method="post">
                 <div class="form-group">
-                  <label>Username</label>
+                    <br>
                   <input type="text" class="form-control" name="user_name" placeholder="username">
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
+                    <br>
                   <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="new-password">
                 </div>
                 <div class="form-group">
@@ -56,7 +61,7 @@ else {
                       </label>
                   </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Login</button>
+                    <button type="submit" class="btn btn-default btn-block">Login</button>
                 </div>
             </form>
             </div>

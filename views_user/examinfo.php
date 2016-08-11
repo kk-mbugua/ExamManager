@@ -65,11 +65,11 @@ $results = $exam->fetch_assoc();
             <div class="btn-group">
               <a href="edit-exam?id=<?php echo $results['exam_id'];?>" class="btn btn-default">Edit Exam</a>
                <?php if($results['exam_done']==0): ?>
-              <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Take Exam</a>
+              <a href="execute?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Take Exam</a>
               <?php else: ?>
               <?php if($results['report_done']==1): ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default"> Edit Report</a>
-              <a href="print_report?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
+              <a href="print_preview?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
             <?php else: ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Make Report</a>
             <?php endif; ?>

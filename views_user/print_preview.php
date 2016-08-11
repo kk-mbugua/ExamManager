@@ -44,7 +44,7 @@ $to_print = $a_result->fetch_assoc();
             
                 <div class="panel-body">
                     <pre>Report by:               <b><?php echo $_GET["writer"];?></b></pre>
-                    <pre>Doctor's Contact Number: <b><?php echo $_GET["phonenumber"];?></b></pre>
+                    <pre>Doctor's Contact Number: <b><?php echo $_GET["phone_number"];?></b></pre>
                 </div>
         </div>                
         </div>

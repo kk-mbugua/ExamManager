@@ -86,6 +86,10 @@ switch ($pagename) {
         return $path;
         break;
 
+    case 'execute':
+        return $path;
+        break;
+
     default:
         return go_to_all($pagename);
         break;

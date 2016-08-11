@@ -15,9 +15,9 @@ if ($_POST) {
 
 //load data from forms into variables    
 $report    =   get_input("report");
-
+$reviewer_id= $_SESSION['user_id'];
 //sql statement to insert data into table
-$sql_edit_exam = "UPDATE reports SET report='$report' WHERE exam_id ='$id'";
+$sql_edit_exam = "UPDATE reports SET report='$report',reviewer_id='$reviewer_id' WHERE exam_id ='$id'";
 db_query($sql_edit_exam);
 $report_taken = "UPDATE exam_info SET report_done = 1  WHERE exam_id ='$id'";
 db_query($report_taken);
@@ -32,9 +32,10 @@ header('Location: examinfo?id='. $id);
                 <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            <h1>EXAM ID : <?php echo $_exam["exam_id"];?></h1>
+            <h1>Exam Report</h1>
           </div>
           <div class="col-md-12">
+              <p>EXAM ID : <?php echo $_exam["exam_id"];?></p>
             <p>patient : <?php echo $_exam["patient_name"];?></p>
             <p>procedure : <?php echo $_exam["exam_name"];?></p>
             <p>doctor : <?php echo $_exam["req_physician"];?></p>
