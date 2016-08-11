@@ -60,7 +60,7 @@
           <a href="patients">
            <div class="panel panel-default panel-faded">
                 <div class="panel-body">
-                    <img src="assets/img/patient.png" class="img-responsive simple-menu">
+                    <img src="assets/img/patients.png" class="img-responsive simple-menu">
                     <h2 class="text-center">view patients</h2>
                 </div>
            </div>

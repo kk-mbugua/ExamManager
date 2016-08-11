@@ -32,9 +32,10 @@ header('Location: examinfo?id='. $id);
                 <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            <h1>EXAM ID : <?php echo $_exam["exam_id"];?></h1>
+            <h1>Exam Report</h1>
           </div>
           <div class="col-md-12">
+              <p>EXAM ID : <?php echo $_exam["exam_id"];?></p>
             <p>patient : <?php echo $_exam["patient_name"];?></p>
             <p>procedure : <?php echo $_exam["exam_name"];?></p>
             <p>doctor : <?php echo $_exam["req_physician"];?></p>

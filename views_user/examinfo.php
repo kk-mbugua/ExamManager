@@ -69,7 +69,7 @@ $results = $exam->fetch_assoc();
               <?php else: ?>
               <?php if($results['report_done']==1): ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default"> Edit Report</a>
-              <a href="print_report?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
+              <a href="print_preview?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Print Report</a>
             <?php else: ?>
               <a href="editreport?exam_id=<?php echo $results['exam_id'];?>" class="btn btn-default">Make Report</a>
             <?php endif; ?>
