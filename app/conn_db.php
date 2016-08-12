@@ -2,6 +2,7 @@
 //declaring the $conn variable
 $conn = ""; 
 $rows_affected = "";
+$this_result = "";
 
 function db_open($db_name = "ris2") {
     //declaring the conn globale variables

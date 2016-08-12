@@ -1,5 +1,4 @@
 
-
         <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
@@ -18,7 +17,7 @@
                             <?php echo $_SESSION["full_name"]; ?>
                             <span class="caret"></span></a>
                                 <ul class=" drop-down dropdown-menu" role="menu" aria-labelledby="menu1">
-                                    <li role="presentarion"></li><a <?php if ($_SESSION["admin"] > 1) { echo "style = \"display: none\"";}?> role="menuitem" tabindex="-1" href="logs">logs</a>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="settings">settings</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="logout">logout</a></li>
                                 </ul>
             <?php endif; ?>
