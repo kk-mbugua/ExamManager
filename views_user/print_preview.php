@@ -2,7 +2,7 @@
 $id = $_GET['exam_id'];
 
 $sql_confirmname = "SELECT patient_details.patient_name, patient_details.phonenumber, "
-        . "user_details.full_name, "
+        . "user_details.full_name, user_details.phone_number, "
         . "exam_info.exam_name, exam_info.modality, exam_info.created_at, "
         . "reports.created_at, reports.report "
         . "FROM reports "
@@ -13,6 +13,7 @@ $sql_confirmname = "SELECT patient_details.patient_name, patient_details.phonenu
 
 $a_result = db_query($sql_confirmname);
 $to_print = $a_result->fetch_assoc();
+$name = explode (" ", $to_print, 3);
 
 ?>
 
@@ -22,7 +23,7 @@ $to_print = $a_result->fetch_assoc();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/datepicker.css">
+    <link rel="stylesheet" href="assets/css/printable.css" media="all">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
@@ -36,15 +37,15 @@ $to_print = $a_result->fetch_assoc();
         <div class="row">
         <div class="col-md-6">           
                 <div class="panel-body">
-                    <pre>Patient's Name:           <b><?php echo $to_print["patient_name"];?></b></pre>
+                    <pre>Patient's Name: <b><?php echo $name[0] . ", " . $name[1], $name[2];?></b></pre>
                     <pre>Patient's Contact Number: <b><?php echo $to_print["phonenumber"];?></b></pre>
                 </div>              
         </div>
         <div class="col-md-6">   
             
                 <div class="panel-body">
-                    <pre>Report by:               <b><?php echo $_GET["writer"];?></b></pre>
-                    <pre>Doctor's Contact Number: <b><?php echo $_GET["phone_number"];?></b></pre>
+                    <pre>Report by: <b><?php echo $to_print["full_name"];?></b></pre>
+                    <pre>Doctor's Contact Number: <b><?php echo $to_print["phone_number"];?></b></pre>
                 </div>
         </div>                
         </div>
@@ -74,17 +75,9 @@ $to_print = $a_result->fetch_assoc();
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4><b>Report:</b></h4>
-                <p>
+                <pre>
                     <?php echo $to_print["report"];?>
-                </p>
-            </div>
-        </div>
-    </div>
-    
-        <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p>Name _____________________________________________________ Date and Time ____________________________________ Signature ______________________</p>
+                </pre>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@
 $sql_patient = "SELECT * FROM patient_details WHERE patient_id = '$identification'";
 $a_patient = db_query($sql_patient);
 $this_patient = $a_patient->fetch_assoc();
+$name = explode(" ", $this_patient["patient_name"], 3);
 //write the sql statement and run the query
 $sql_schedule = "SELECT exam_info.exam_id, patient_details.patient_name, exam_info.req_physician, exam_info.exam_name, exam_info.modality, exam_info.created_at  FROM exam_info INNER JOIN patient_details ON exam_info.patient_id=patient_details.patient_id where exam_info.patient_id='$identification'";
 $schedule = db_query($sql_schedule);
@@ -26,7 +27,7 @@ $schedule = db_query($sql_schedule);
         <dt>Patient's Names :</dt>
         </div>
         <div class="col-md-9">
-        <dd><?php echo $this_patient["patient_name"];?></dd>
+        <dd><?php echo $name[0] . ", " . $name[1] . " " . $name[2];?></dd>
         </div>
         <div class="col-md-3">
               <dt>Date of Birth</dt>

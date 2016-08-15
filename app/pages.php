@@ -85,6 +85,10 @@ switch ($pagename) {
     case 'print_preview':
         return $path;
         break;
+    
+    case 'print_preview2':
+        return $path;
+        break;
 
     case 'execute':
         return $path;

@@ -5,7 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $f_name = get_input("f_name");
     $m_name = get_input("m_name");
     $l_name = get_input("l_name");
-    $full_name = $l_name . ", " . $f_name . " " . $m_name;
+    $full_name = $l_name . " " . $f_name . " " . $m_name;
+    $phone_number = get_input("phone_number");
+    $email = get_input("email");
     
     $user_name = strtolower(substr($f_name, 0,1). $l_name);
     
@@ -22,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
  
     //sql statement to insert data into table and query the database
     $sql_insert_new_user = 
-            "INSERT INTO user_details (full_name, user_name, admin, password) VALUES ('$full_name', '$user_name','$admin', '$password')";
+            "INSERT INTO user_details (full_name, user_name, admin, phone_number, email, password) VALUES ('$full_name', '$user_name','$admin', '$phone_number', '$email', '$password')";
     db_query($sql_insert_new_user);
     
     header('Location: /ExamManager/users');
@@ -60,10 +62,29 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                         </div>
                     </div>
                 </div>
-                <div class="row i">
-                <div class="col-md-12">
-                    Give user administrative privileges<input type="checkbox" name="admin" value="1">
+                <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Make Administrator</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="admin" value="1">
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="control-label">Contact Number<sup>*</sup></label>
+                      <input class="form-control" type="text" name="phone_number" required>
                     </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Email Address</label>
+                      <input class="form-control" type="text" name="email">
+                    </div>
+                </div>
                 </div>
 
               <button type="submit" class="btn btn-default">Submit</button>

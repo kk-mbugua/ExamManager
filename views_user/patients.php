@@ -43,7 +43,7 @@ $patients = db_query($sql_patients);
             <form role="form" method="get">
               <div class="form-group">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="search" placeholder="Enter Patient Name">
+                  <input type="text" class="form-control" name="search" placeholder="Enter Patient Name Or National ID">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">search</button>
                   </span>
@@ -68,11 +68,11 @@ $patients = db_query($sql_patients);
           <div class="col-md-12">
               <ul class="media-list">
                <?php if($patients->num_rows > 0): ?>
-                 <?php while ($row = $patients->fetch_assoc()) { ?>
+                 <?php while ($row = $patients->fetch_assoc()) { $name = explode(" ", $row["patient_name"], 3);?>
                  <li class="col-md-6">
                   <div class="panel panel-default panel-faded">
                     <div class=" file-list">
-                        <a class="pull-left img--space" href="patientinfo?id=<?php echo $row["patient_id"]?>"><img class="media-object" src="assets/img/avatar.jpg" height="79" width="79"></a>
+                        <a class="pull-left img--space" href="patientinfo?id=<?php echo $name[0] . ", " . $name[1] . " " . $name[2];?>"><img class="media-object" src="assets/img/avatar.jpg" height="79" width="79"></a>
                         <div class="media-body">
                           <a href="patientinfo?id=<?php echo $row['patient_id'];?>" ><h4 class="name"><?php echo $row["patient_name"];?></h4></a>
                           <div> mobile .No :<?php echo $row["phonenumber"];?></div>

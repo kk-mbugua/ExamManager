@@ -1,5 +1,4 @@
 
-
 <div class="section">
   <div class="container">
       <div class="col-md-offset-3  col-md-6">
@@ -33,7 +32,7 @@
         <form role="form" method="get" action="patients">
               <div class="form-group">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="search" placeholder="Enter Patient Name">
+                  <input type="text" class="form-control" name="search" placeholder="Enter Patient Name or National ID or ">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">search</button>
                   </span>

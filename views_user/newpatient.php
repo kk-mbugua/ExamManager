@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $f_name = get_input("f_name");
     $m_name = get_input("m_name");
     $l_name = get_input("l_name");
-    $patient_name = $l_name . ", " . $f_name . " " . $m_name;
+    $patient_name = $l_name . " " . $f_name . " " . $m_name;
     
     //make birthday format(month-day_year)
     $birthday       = get_input("birthday");

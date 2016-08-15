@@ -9,8 +9,8 @@ $a_user = db_query($sql_user);
 $this_user = $a_user->fetch_assoc();
 
 $name = $this_user['full_name'];
-$names= explode(" ", $this_user['user_name']);
-$names[0] = rtrim($names[0], ",");
+$names= explode(" ", $this_user['user_name'], 3);
+
 
 $admin = $this_user['admin'];
 }
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $f_name = get_input("f_name");
     $m_name = get_input("m_name");
     $l_name = get_input("l_name");
-    $full_name = $l_name . ", " . $f_name . " " . $m_name;
+    $full_name = $l_name . " " . $f_name . " " . $m_name;
     
     $user_name = strtolower(substr($f_name, 0,1). $l_name);
     

@@ -35,6 +35,7 @@ else{
 require 'templates/header.php';
 require 'templates/navigation.php';
 
+
 if (!isset($_SESSION["user_id"])) { //go to log in page if session is not set
     require go_to_all("login");
 }
@@ -56,5 +57,7 @@ else{
         }
     }
 }
+  require 'templests/footer.php';
 }
+
 ?>

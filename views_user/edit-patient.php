@@ -10,8 +10,8 @@ $a_patient = db_query($sql_schedule);
 
 $this_patient = $a_patient->fetch_assoc();
 $name =$this_patient['patient_name'];
- $names=explode(" ", $this_patient['patient_name']);
- $names[0]=rtrim($names[0], ",");
+ $names=explode(" ", $this_patient['patient_name'], 3);
+ 
 
 }
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $f_name = get_input("f_name");
     $m_name = get_input("m_name");
     $l_name = get_input("l_name");
-    $patient_name = $l_name . ", " . $f_name . " " . $m_name;
+    $patient_name = $l_name . " " . $f_name . " " . $m_name;
     
     //make birthday format(month-day_year)
     $birthday       = get_input("birthday");

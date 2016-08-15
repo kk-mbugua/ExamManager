@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 03, 2016 at 03:42 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.15
+-- Host: localhost:3306
+-- Generation Time: Aug 15, 2016 at 11:57 AM
+-- Server version: 5.5.42
+-- PHP Version: 5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,7 +36,7 @@ CREATE TABLE `exam_info` (
   `exam_reason` text NOT NULL,
   `receipt` varchar(20) NOT NULL,
   `amount` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `exam_done` tinyint(4) NOT NULL,
   `report_done` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -46,10 +46,7 @@ CREATE TABLE `exam_info` (
 --
 
 INSERT INTO `exam_info` (`exam_id`, `performer_id`, `patient_id`, `req_physician`, `modality`, `exam_name`, `exam_reason`, `receipt`, `amount`, `created_at`, `exam_done`, `report_done`) VALUES
-('1', '3', '578df1530ed11', 'max', 'MX', 'mammoghraph', 'rhbanf htrhr hjrjr yg btrhrt rthrtthrth thrth ', 'bthts ', 5472, '2016-08-02 08:53:06', 1, 1),
-('57a0617c7bcd9', '3', '578df0a3c1fab', 'MARTIN', 'Se', 'x-ray', 'broken arm', '3000', 1000, '2016-08-02 09:01:48', 1, 1),
-('57a1e578c4cc6', '3', '57a1e4df067d0', 'de whoever', 'Se', 'mammoghraph', 'rfkrbl rjfgbngb dffgnkb ', '10000xex22', 1000, '2016-08-03 12:37:12', 1, 1),
-('57a1e93467306', '3', '578df1530ed11', 'iiii', 'Se', 'klll', 'hhjj', 'uuii', 1000, '2016-08-03 12:53:08', 1, 0);
+('1', '1', '578df1530ed11', 'test Doc', 'MX', 'mammoghraph', 'test', '10011', 100, '2016-08-01 09:07:26', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -84,30 +81,29 @@ CREATE TABLE `patient_details` (
 
 INSERT INTO `patient_details` (`patient_id`, `patient_name`, `birthday`, `phonenumber`, `national_id`, `status`, `gender`, `created_at`) VALUES
 ('578dee3861eaa', '', '0000-00-00', '', '', '', '', '2016-08-01 08:40:54'),
-('578df0a3c1fab', ', janet ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578df1530ed11', 'ross, james rick', '2016-12-07', '000000000', '000000000', '1', 'M', '2016-08-01 08:40:54'),
-('578e1584c3c44', ',  james', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f246057c55', ',  ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f246e49575', ', kakakakakak ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f2f04121e6', ', kkkkkkkkkkk ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f2ffc8b601', ', l ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f30c28915d', ', llll ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f31b3a953c', ', kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f35e1a378c', ', d ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f3a105a736', ', llllllllll ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f3f65e67b2', ', new ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f4a23ef71b', ',  ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f4b1f6a2da', ', kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f4ce6a2d2b', ', kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
-('578f6dd61d408', 'mbugua, kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
-('578f6dfc0a79f', 'sdfsf, lakdlaskd ', '2016-07-06', '', '', '', 'M', '2016-08-01 08:40:54'),
-('578f6fae9ac5e', 'sdfsf, lakdlaskd ', '2016-07-06', '', '', '', 'M', '2016-08-01 08:40:54'),
-('578f6ff833b68', 'mbugua, kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
-('578f6ffc372e0', 'mbugua, kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
-('578f708a2ed82', 'idhjf, ajlkjfaskdjf ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
-('578f70c02c236', 'x, lll ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
-('578f721975535', 'z, z ', '2016-04-07', 'zzzzzzzzzz', 'zzzxxzx', '', 'M', '2016-08-01 08:40:54'),
-('57a1e4df067d0', 'last, first middle', '1970-01-01', '2323232322', '42343243', '0', 'F', '2016-08-03 12:34:39');
+('578df0a3c1fab', 'janet ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578df1530ed11', 'james rick peterson value', '2016-12-07', '000000000', '000000000', '1', 'M', '2016-08-01 08:40:54'),
+('578e1584c3c44', ' james', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f246057c55', '', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f246e49575', 'kakakakakak ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f2f04121e6', 'kkkkkkkkkkk ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f2ffc8b601', 'l ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f30c28915d', 'llll ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f31b3a953c', 'kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f35e1a378c', 'd ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f3a105a736', 'llllllllll ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f3f65e67b2', 'new ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f4a23ef71b', '', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f4b1f6a2da', 'kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f4ce6a2d2b', 'kamau ', '1970-01-01', '', '', '', '', '2016-08-01 08:40:54'),
+('578f6dd61d408', 'mbugua kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
+('578f6dfc0a79f', 'sdfsf lakdlaskd ', '2016-07-06', '', '', '', 'M', '2016-08-01 08:40:54'),
+('578f6fae9ac5e', 'sdfsf lakdlaskd ', '2016-07-06', '', '', '', 'M', '2016-08-01 08:40:54'),
+('578f6ff833b68', 'mbugua kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
+('578f6ffc372e0', 'mbugua kibugi ', '1970-01-01', 'd', 's', '', 'M', '2016-08-01 08:40:54'),
+('578f708a2ed82', 'idhjf ajlkjfaskdjf ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
+('578f70c02c236', 'x lll ', '1970-01-01', '', '', '', 'F', '2016-08-01 08:40:54'),
+('578f721975535', 'z z ', '2016-04-07', 'zzzzzzzzzz', 'zzzxxzx', '', 'M', '2016-08-01 08:40:54');
 
 -- --------------------------------------------------------
 
@@ -123,7 +119,7 @@ CREATE TABLE `procedures` (
   `duration` int(11) DEFAULT NULL,
   `created_by` varchar(60) DEFAULT NULL,
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `procedures`
@@ -155,10 +151,7 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `reviewer_id`, `exam_id`, `patient_id`, `report`, `created_at`) VALUES
-('57a05f6a688ff', '3', '1', '578df1530ed11', 'ethbt ethtt eth4trh tr', '2016-08-02 08:52:58'),
-('57a0617c7bcee', '3', '57a0617c7bcd9', '578df0a3c1fab', 'lets hope it works!', '2016-08-02 09:01:48'),
-('57a1e578c4cd9', '3', '57a1e578c4cc6', '57a1e4df067d0', 'thyty y5yyj  5hy6u yy3j6yju6j w6rw\r\n\r\n\r\nhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\r\n\r\n\r\n\r\nhhhhhhhhhhhhhhh', '2016-08-03 12:37:12'),
-('57a1e9346731b', '', '57a1e93467306', '578df1530ed11', '', '2016-08-03 12:53:08');
+('578e24267be3a', '3', '1 ', '578df1530ed11', 'this it a test report', '2016-07-19 12:59:18');
 
 -- --------------------------------------------------------
 
@@ -172,26 +165,18 @@ CREATE TABLE `user_details` (
   `user_name` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `admin` tinyint(4) NOT NULL,
-  `first_login` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `phone_number` varchar(20) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `first_login` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`user_id`, `full_name`, `user_name`, `password`, `admin`, `first_login`) VALUES
-(1, '', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1),
-(2, 'mbugua, kibugi kamau', 'kamau', '1a1dc91c907325c69271ddf0c944bc72', 1, 1),
-(3, 'full name', 'user', '1a1dc91c907325c69271ddf0c944bc72', 0, 1),
-(4, '', 'Fischer, Jenny ', '', 1, 0),
-(5, '', 'Simon, Paul ', '0d9116487fb6bead1f8d7baf8255dd7c', 0, 0),
-(6, 'John, Stacy ', 'StacyJohn', '47f4d9098a0a789b8427ae2451f9377f', 1, 0),
-(7, 'John, Jesse Stacy ', 'SJohn', 'lklklklk', 1, 0),
-(8, 'John, Stacy ', 'sjohn', '32a447a420709d644539fb03f5d2e1ad', 1, 0),
-(9, 'Peters, Philip ', 'ppeters', '698ff33221cca6bd133bc2e97ba09bb7', 0, 0),
-(10, 'pete, peter ', 'ppete', '39ec09bb4ccb32ad81b6f5fd782be8d1', 0, 0),
-(11, 'Biko, Charlse ', 'cbiko', 'f73c1bede30ccd3e60e28d32c5a7c241', 0, 0),
-(12, 'Kibe, Njoki ', 'nkibe', '9632f662105e06da2a9a50632c31edf1', 1, 0);
+INSERT INTO `user_details` (`user_id`, `full_name`, `user_name`, `password`, `admin`, `phone_number`, `email`, `first_login`) VALUES
+(2, 'System Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '0721234567', 'admin@examanager.com', 1),
+(3, 'Users''s Full Name', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 0, '0721345678', 'user@examanager.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -241,12 +226,12 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
-  MODIFY `procedure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `procedure_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
