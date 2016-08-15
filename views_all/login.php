@@ -39,7 +39,6 @@ else {
     <div class="container">
         <div class="col-md-offset-3  col-md-6">
             <h1 class="text-center landing-top" >Exam Manager</h1>
-            <h4 class="text-center landing-bottom">Powered by SST</h4>
             <hr>
         </div>
        <div class="col-md-offset-4  col-md-4"><br>

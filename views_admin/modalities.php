@@ -43,6 +43,7 @@ if(isset($_GET['delete'])){
                           <th>Modality Full Name</th>
                           <th>Installation Date</th>
                           <th>Estimated Date of Next Service</th>
+                          <th>Last Service</th>
                       </tr>  
                     </thead>
                     <tbody>
@@ -52,6 +53,7 @@ if(isset($_GET['delete'])){
                         <td><?php e($row["modality_name"]);?></td>
                         <td><?php e($row["install_date"]);?></td>
                         <td><?php e($row["next_service"]);?></td>
+                        <td><?php e($row["last_service"]);?></td>
                         <td><a class="btn btn-default" title="delete" href="modalities?delete=<?php e($row['modality_abbr']);?>"> <img src="assets/img/delete.png"></a></td>
                     </tr>
                    <?php } ?>

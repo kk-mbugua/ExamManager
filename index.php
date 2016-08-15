@@ -14,6 +14,7 @@ if(isset($_SESSION["start_time"])){
     if (time() >= ($_SESSION["start_time"] + $destryin)) {
         unset($_SESSION["start_time"]);
         session_destroy();
+        header('Location: /ExamManager/');
     }
     else{//reset the timer
         $_SESSION["start_time"] = time();

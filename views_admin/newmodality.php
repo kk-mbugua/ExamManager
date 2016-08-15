@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     
     //sql statement to insert data into table and query the database
     $sql_insert_new_modality = 
-            "INSERT INTO modalities (`modality_abbr`, `modality_name`, `install_date`, `next_service`) VALUES ('$modality_abbr', '$modality_name', '$install_date', '$next_service')";
+            "INSERT INTO modalities (`modality_abbr`, `modality_name`, `install_date`, `next_service`, `last_service`) VALUES ('$modality_abbr', '$modality_name', '$install_date', '$next_service', '$install_date')";
     db_query($sql_insert_new_modality);
     
     header('Location: /ExamManager/modalities');

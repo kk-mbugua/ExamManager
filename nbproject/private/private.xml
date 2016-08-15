@@ -3,22 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/Applications/MAMP/htdocs/ExamManager/assets/css/style.css</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/assets/css/printable.css</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/newpatient.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/patientinfo.php</file>
             <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/patients.php</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/app/pages.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/edit_user.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/userinfo.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/edit-patient.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/newuser.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_admin/users.php</file>
             <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/print_preview.php</file>
-=======
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/examinfo.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/home.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/print_preview.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_all/login.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/patientinfo.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/editreport.php</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/assets/css/style.css</file>
-            <file>file:/E:/Dropbox/htdocs/ExamManager/views_user/reports.php</file>
->>>>>>> 2ab1d86c58eb29ee66ffcb549b288502a74e69be
         </group>
     </open-files>
 </project-private>
