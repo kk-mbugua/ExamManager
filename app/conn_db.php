@@ -43,13 +43,15 @@ function db_close() {
 }
 
 function error_handler($error_msg, $mysqli_errno, $mysqli_errmsg) {
-    
+    /*
     if ($mysqli_errmsg) {
         $error_msg .= "mysqli error: " . $mysqli_errno . ":- " . $mysqli_errmsg . "<br>";
     }
     
     echo "The following error(s) has occured:" . "<br>" . $error_msg;
    // die();
+     * /
+     */
 }
 
 
