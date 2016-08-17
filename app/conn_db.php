@@ -80,5 +80,4 @@ function db_query($sql) {
     }
 
 }
-
 ?>

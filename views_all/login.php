@@ -1,7 +1,5 @@
- <?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-
-    
 //load data from forms into variables
 $user_name  = get_input("user_name");
 $password   = md5(get_input("password"));
@@ -22,8 +20,8 @@ if ($password == $this_user["password"]) {
     //for session expiry
     $_SESSION["start_time"]        = time();
         
-        die();
         header("Location: /ExamManager/");
+        die();
     }
     
 else {
@@ -33,7 +31,6 @@ else {
 }
 
 ?>
-
 <div class="section">
     <div class="container">
         <div class="col-md-offset-3  col-md-6">

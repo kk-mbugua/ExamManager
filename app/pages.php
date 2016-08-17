@@ -1,5 +1,4 @@
 <?php
-
 function go_to_all($pagename){
     $path = ROOT . "/ExamManager/views_all/".$pagename.".php";
     
@@ -155,5 +154,4 @@ switch ($pagename) {
         break;
     }
 }
-
 ?>
