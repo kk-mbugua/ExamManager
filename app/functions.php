@@ -38,13 +38,15 @@ function cal_years() {
 }
 
 //reports user readable error message after an opperation
-function toast($msg) {
+function toast($msg, $type) {
+    //types include success, info, warning and danger
+    
     echo '
 
     <div class="section">
         <div class="container"><div class="row">
-          <div class="col-md-12">
-                <div class="alert alert-danger alert-info">
+          <div class="col-md-11">
+                <div class="alert alert-' . $type . '">
                     <strong>'. $msg .'</div>
                 </div>
             </div>

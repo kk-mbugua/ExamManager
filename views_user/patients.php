@@ -82,9 +82,7 @@ $patients = db_query($sql_patients);
                   </div>
                  </li>
                  <?php } ?>
-                  <?php else: ?>
-            <h3>  no Patients </h3>
-          <?php endif; ?>                
+                  <?php else: isset($_GET['search']) ? toast("No patient found using the search terms <i>$search</i>. Try again.", "warning"): toast("<h3>No Patinets Added Today</h3>", "info") ; endif; ?>                
                </ul>  
           </div>
         </div>

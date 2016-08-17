@@ -58,7 +58,6 @@ else{
         }
     }
 }
-  require 'templests/footer.php';
 }
 
 ?>
