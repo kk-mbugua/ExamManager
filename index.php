@@ -1,12 +1,9 @@
 <?php
+session_start();
 include 'app/conn_db.php';
 include 'app/functions.php';
 include 'app/pages.php';
-//error_reporting(0);
-session_start();
 define('ROOT', dirname(__DIR__));
-$home = "/ExamManager";
-
 
 //set session expiry after period of no use. 1 hour
 $destryin = 3600; //seconds
@@ -33,7 +30,7 @@ if($page == "print_preview") {
 
 else{
     
-require 'templates/header.php';
+require 'templates/header.php';  
 require 'templates/navigation.php';
 
 

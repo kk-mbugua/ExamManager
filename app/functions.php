@@ -53,4 +53,10 @@ function toast($msg, $type) {
         </div>
     </div>';
 }
+
+//set a  global variable for redirection
+$redirect;
+function redirect_to($page = "") {
+    $_SESSION["redirect"] = $page;
+}
 ?>

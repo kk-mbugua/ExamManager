@@ -5,10 +5,12 @@
         <group>
             <file>file:/Applications/MAMP/htdocs/ExamManager/app/functions.php</file>
             <file>file:/Applications/MAMP/htdocs/ExamManager/views_all/login.php</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/app/conn_db.php</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/patients.php</file>
-            <file>file:/Applications/MAMP/htdocs/ExamManager/views_user/exams.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/templates/footer.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/views_all/redirect.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/templates/navigation.php</file>
             <file>file:/Applications/MAMP/htdocs/ExamManager/index.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/app/pages.php</file>
+            <file>file:/Applications/MAMP/htdocs/ExamManager/templates/header.php</file>
         </group>
     </open-files>
 </project-private>
