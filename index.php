@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start(); //start output buffer
 include 'app/conn_db.php';
 include 'app/functions.php';
 include 'app/pages.php';
@@ -29,9 +30,13 @@ if($page == "print_preview") {
 }
 
 else{
-    
-require 'templates/header.php';  
-require 'templates/navigation.php';
+  
+if (!isset($_SERVER["redirect"])) {
+    require 'templates/header.php';  
+    require'templates/navigation.php';
+    unset($_SERVER["redirect"]);
+}
+
 
 
 if (!isset($_SESSION["user_id"])) { //go to log in page if session is not set
@@ -56,4 +61,6 @@ else{
     }
 }
 }
+
+ob_end_flush(); //clean the output buffer
 ?>
