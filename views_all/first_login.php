@@ -41,6 +41,7 @@ else {
                     <button type="submit" class="btn btn-default">Set new password</button>
                 </div>
             </form>
+            <a href="logout">Leave without changing password</a>
              </div>
            </div>
         </div>

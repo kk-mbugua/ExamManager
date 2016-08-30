@@ -10,6 +10,6 @@
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
 
-    <title>ExamManager | <?php echo $page?></title>
+    <title>ExamManager | <?php echo $title?></title>
     </head>
     <body>

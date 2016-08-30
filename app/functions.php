@@ -1,10 +1,14 @@
 <?php
-// accesses post array and makes inputed data more secure
+// accesses post or get array and makes inputed data more secure
 function get_input($input) {
-$output = ($_POST["$input"]);
-$output = strip_tags($output);
-$output = stripslashes($output);
-return $output;
+    if ( isset($_POST["$input"]) ) {
+        $output = ($_POST["$input"]);
+    } else {
+        $output = ($_GET["$input"]);
+    }
+    $output = strip_tags($output);
+    $output = stripslashes($output);
+    return $output;
 }
 
 function e($value){
@@ -54,9 +58,25 @@ function toast($msg, $type) {
     </div>';
 }
 
-//set a  global variable for redirection
-$redirect;
+//
 function redirect_to($page = "") {
-    $_SESSION["redirect"] = $page;
+    header('Location: /ExamManager/' . $page);
 }
+
+//
+function expiry ($logoff_in_secs) {
+    //user will be logged out after a certain number of seconds of inactivity. 
+    
+    if(isset($_SESSION["start_time"])){
+    if (time() >= ($_SESSION["start_time"] + $logoff_in_secs)) {
+        unset($_SESSION["start_time"]);
+        session_destroy();
+        header('Location: /ExamManager/');
+    }
+    else{//reset the timer
+        $_SESSION["start_time"] = time();
+    }
+}
+}
+
 ?>

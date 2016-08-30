@@ -1,65 +1,60 @@
 <?php
+//functionts to help manage pages
 session_start();
-ob_start(); //start output buffer
+ob_start();
+
+
+//includes needed to acces database, pages and regularly used functions.
 include 'app/conn_db.php';
-include 'app/functions.php';
 include 'app/pages.php';
+include 'app/functions.php';
+
+
+//decaration and definitions of needed varibles
 define('ROOT', dirname(__DIR__));
+$logged_in      = empty($_SESSION['user_id']) ? NULL : 1; // determines if user has access to exam manager
+$permission     = empty($_SESSION["admin"]) ? NULL : $_SESSION["admin"]; //he user can access on the site
+$first_login    = empty($_SESSION["first_login"]) ? NULL : $_SESSION["first_login"]; // determines if user has loged in for the first time
+$page           = empty(get_input('page')) ?  'home' : get_input('page'); // the name of the page to access
 
-//set session expiry after period of no use. 1 hour
-$destryin = 3600; //seconds
-if(isset($_SESSION["start_time"])){
-    if (time() >= ($_SESSION["start_time"] + $destryin)) {
-        unset($_SESSION["start_time"]);
-        session_destroy();
-        header('Location: /ExamManager/');
-    }
-    else{//reset the timer
-        $_SESSION["start_time"] = time();
-    }
-}
 
-if(!empty($_GET['page'])){
-    $page = $_GET['page'];
-}else{
-    $page = "home";   
-}
-
-if($page == "print_preview") {
-    require 'views_user/print_preview.php';
-}
-
-else{
-  
-if (!isset($_SERVER["redirect"])) {
-    require 'templates/header.php';  
-    require'templates/navigation.php';
-    unset($_SERVER["redirect"]);
+//for logout
+if ($page == "logout") {
+    $_SESSION = array();
+    session_destroy();
+    redirect_to();
 }
 
 
+//include the header and navigation parts of the page
+require 'templates/header.php';  
+require 'templates/navigation.php';
 
-if (!isset($_SESSION["user_id"])) { //go to log in page if session is not set
-    require go_to_all("login");
+
+//check if user is logged in
+if (!isset($logged_in) || $logged_in != 1) {
+    $page = 'login';
 }
-else{ 
-    if($_SESSION["first_login"] < 1) { //check if user has made a first login, if not redirect to first login page
-        if($page == "logout"){
-            require go_to_all("logout");
-        }
-        else{
-            require go_to_all("first_login");
-        }
-    }
-    else{
-        if($_SESSION["admin"] < 1) { //access admin page if user has admin privilages
-            require go_to_user($page);
-        }
-        else{
-            require go_to_admin($page);
-        }
-    }
+
+//check if the user has made a first login attempt
+if ($logged_in == 1 && $first_login != 1) {
+    $page = 'first_login';
 }
+
+
+//load the page
+switch ($permission) {
+    case 0:
+        require go_to_user($page);
+        break;
+    
+    case 1:
+        require go_to_admin($page);
+        break;
+    
+    default :
+        require go_to_all($page);
+        break;
 }
 
 ob_end_flush(); //clean the output buffer

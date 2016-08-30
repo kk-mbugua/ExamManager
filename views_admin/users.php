@@ -56,10 +56,10 @@ if(isset($_GET['delete'])){
                         <img class="media-object pull-left img--space" src="assets/img/avatar.jpg" height="79" width="79">
                         <div class="media-body">
                           <h4 class="name"><?php echo $name[0] . ", " . $name[1] . " " . $name[2];?></h4>
-                          <h5 class="name">Username: <?php e($row["user_name"]);?></h5>
-                          <div><?php if($row["admin"]>0){e("Administrator");}else{e("<br>");}?></div>
-                          <a class="btn btn-default" title="edit" href="edit_user?id=<?php e($row['user_id']);?>"> <img src="assets/img/edit.png"></a>
-                          <a class="btn btn-default" title="delete" href="users?delete=<?php e($row['user_name'] . "&id=" . $row['user_id']);?>"> <img src="assets/img/delete.png"></a>
+                          <h5 class="name">Username: <?php echo($row["user_name"]);?></h5>
+                          <div><?php if($row["admin"]>0){echo("Administrator");}else{echo("<br>");}?></div>
+                          <a class="btn btn-default" title="edit" href="edit_user?id=<?php echo($row['user_id']);?>"> <img src="assets/img/edit.png"></a>
+                          <a class="btn btn-default" title="delete" href="users?delete=<?php echo($row['user_name'] . "&id=" . $row['user_id']);?>"> <img src="assets/img/delete.png"></a>
                         </div>
                     </div>
                   </div>

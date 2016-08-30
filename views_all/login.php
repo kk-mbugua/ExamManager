@@ -11,6 +11,7 @@ $this_user = $a_user->fetch_assoc();
 
 //check if password is a match
 if ($password == $this_user["password"]) {
+    
     $_SESSION["full_name"]      = $this_user["full_name"];
     $_SESSION["user_name"]      = $this_user["user_name"];
     $_SESSION["user_id"]        = $this_user["user_id"];
