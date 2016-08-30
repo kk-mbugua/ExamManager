@@ -18,8 +18,8 @@ $first_login    = empty($_SESSION["first_login"]) ? NULL : $_SESSION["first_logi
 $page           = empty(get_input('page')) ?  'home' : get_input('page'); // the name of the page to access
 
 
-//for logout
-if ($page == "logout") {
+//for logout and session expiry (in minutes)
+if ($page == "logout" || expired(45)) {
     $_SESSION = array();
     session_destroy();
     redirect_to();

@@ -64,17 +64,17 @@ function redirect_to($page = "") {
 }
 
 //
-function expiry ($logoff_in_secs) {
+function expired ($minutes) {
     //user will be logged out after a certain number of seconds of inactivity. 
+    $expire_in = $minutes * 60;
     
     if(isset($_SESSION["start_time"])){
-    if (time() >= ($_SESSION["start_time"] + $logoff_in_secs)) {
-        unset($_SESSION["start_time"]);
-        session_destroy();
-        header('Location: /ExamManager/');
+    if (time() >= ($_SESSION["start_time"] + $expire_in)) {
+        return TRUE;
     }
     else{//reset the timer
         $_SESSION["start_time"] = time();
+        return FALSE;
     }
 }
 }
